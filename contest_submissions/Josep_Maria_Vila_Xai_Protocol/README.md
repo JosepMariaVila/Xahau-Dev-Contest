@@ -282,7 +282,7 @@ Online demo (pending...): https://skunk-proper-smoothly.ngrok-free.app/tools/xai
 
 ## Acknowledgements
 
-@ekiserrepe, @XRPLWin, @angell_denis, @WietseWind, @nixerFFM
+@ekiserrepe, @XRPLWin, @dangell7, @WietseWind, @nixer89
 
 ## Credit
 
