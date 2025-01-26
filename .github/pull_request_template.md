@@ -337,7 +337,7 @@ Submissions will be shared and amplified by the @XahauNetwork account, giving yo
 
 - [x] **Second Mandatory Tweet** upon submission for final review:
 
-  - **Link to Tweet:** https://x.com/ainittomai/status/1883442794834071812
+  - **Link to Tweet:** pending...
 
   **Example Tweet:**
   > We have submitted [Project Name] to the Build on Xahau contest, see our submission here: [PR Link]
