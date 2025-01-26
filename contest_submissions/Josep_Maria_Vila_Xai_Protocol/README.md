@@ -222,17 +222,6 @@ https://xahauexplorer.com/explorer/E7B0A49DAD5DFF0B0E31A64DBC563E8F85213D9146BAC
 See that the vault once taken over doesn't exist anymore:
 https://xahauexplorer.com/explorer/025924EED5C956628559DECECE0866AD73D4C51C2F61A4950F631462BB8AD7CD
 
-
-### Critical error in the takeover mode
-
-Let's see what happens if an user, not the owner of a liquidatable vault, sends enough amount of value to payback the debt, let's say 15 XAI USD or more, or the equivalent amount of XAH for that value... WARNING: the code doesn't work properly! When an user sends enough money to payback debt and gain ownership of a vault the code gives the following response "Xai: Vault is not sufficiently undercollateralized to take over yet" https://xahauexplorer.com/explorer/F2C8C83F1A468F34CAA1EC6DB1FB2C440BE9468E27AB3ED05C9DCF7E97069EB2, but in fact it is sufficiently undercollateralized. I tested several times and happens the same at any price.
-
-At any price above the liquidation price the code gives: "Xai: Vault is undercollateralized and your deposit would not redeem it", as expected.
-
-But at any price bellow the liquidation price (and at the exactly liquidation price): "Vault is not sufficiently undercollateralized to take over yet", which is not true and incoherent.
-
-So, the liquidation ratio doesn't work properly. The code doesn't take over vaults. If anybody wants to continue this project he should fix the liquidation ratio related code, i'm not able to fix the code at that level.
-
 ## EXAMPLE 2 (XAH price is set using Wietse Wind oracle)
 
 ### Accounts required
