@@ -153,6 +153,12 @@ https://xahauexplorer.com/explorer/896F7DFC6E9652A1698228AE2FF4DCCBF3CF6C4407E0E
 
 https://xahauexplorer.com/explorer/F61AB65666243A17B43703A671FCD77945525A7FC16E1B8EB3E650F388624894
 
+Now, if she sends back the XAI USD borrowed the protocol sends back his XAI and the vault dissapears:
+
+https://xahauexplorer.com/explorer/C93E3895574C6D6B48BD8AA4357D57D729E4AA03A153435DD9C145D5E428F6B4
+
+https://xahauexplorer.com/explorer/86CB7421CB370BB1E82A0FBAEE09B72E19C6E8D6C85BF3722E4237C71D267207
+
 ### Take over a vault
 
 Once a vault goes bellow 117% collateralization any user can take over the vault by sending the needed amount of XAH to bring it back to a secure degree of collateralization above 117%. By doing that the user takes control over the vault.
