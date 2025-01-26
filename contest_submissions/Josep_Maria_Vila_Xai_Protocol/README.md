@@ -161,9 +161,16 @@ https://xahauexplorer.com/explorer/86CB7421CB370BB1E82A0FBAEE09B72E19C6E8D6C85BF
 
 ### Take over a vault
 
-Once a vault goes bellow 117% collateralization any user can take over the vault by sending the needed amount of XAH to bring it back to a secure degree of collateralization above 117%. By doing that the user takes control over the vault.
+Once a vault goes bellow 120% collateralization any user can take over the vault by sending the needed amount of XAH to bring it back to a secure degree of collateralization above 120%. By doing that the user takes control over the vault.
 
-Let's set XAH price at 1 XAI USD:
+Let's consider the previous example but instead of Alice recollateralize his position, she doesn't, and then another user takes over her vault:
+
+Remember, Alice collateralized 1 XAH at a price of $20 XAI USD, and the protocol issued a loan of $10 value (50% ratio between debt/collateral), then XAH price felt to $10 value, putting the vault in a liquidatable situation because the liquidation ratio starts at 83% and the vault is now at 100%.
+
+The user tries to take over the vault with an insufficient amount:
+
+
+
 https://xahauexplorer.com/explorer/A5D0DB88A4B156352D991095D84E54D303A83C4D0C9DF32B2C07FC2DF898AF56
 
 So Alices vault becomes undercollateralized bellow the 117% ratio. Now any user can take over the vault by collateralizing it with XAH to bring it back above 117% again. How can any user do that? 
