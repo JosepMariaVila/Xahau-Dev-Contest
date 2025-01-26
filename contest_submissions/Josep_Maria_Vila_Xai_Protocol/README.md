@@ -167,14 +167,6 @@ Let's consider the previous example but instead of Alice recollateralize his pos
 
 Remember, Alice collateralized 1 XAH at a price of $20 XAI USD, and the protocol issued a loan of $10 value (50% ratio between debt/collateral), then XAH price felt to $10 value, putting the vault in a liquidatable situation because the liquidation ratio starts at 83% and the vault is now at 100%.
 
-The user tries to take over the vault with an insufficient amount:
-
-
-
-https://xahauexplorer.com/explorer/A5D0DB88A4B156352D991095D84E54D303A83C4D0C9DF32B2C07FC2DF898AF56
-
-So Alices vault becomes undercollateralized bellow the 117% ratio. Now any user can take over the vault by collateralizing it with XAH to bring it back above 117% again. How can any user do that? 
-
 A vault is identified with the Vault ID, which consists in the following data combined: Account ID + FFFFFFFF + 0000000000000000
 
 a) Account ID: for example, Alice user account rsF3rBFyQP2zCheJ2woHv46XHvUyKVRK86 has as Account ID: 1ED9A5D3DDC00560601FA55482D7956559002B27
@@ -186,36 +178,50 @@ c) 0 up to 64 characters: 0000000000000000
 So, in this case, Alice Vault ID is: 1ED9A5D3DDC00560601FA55482D7956559002B27FFFFFFFF0000000000000000
 
 The Vault ID coincides with the HookStateKey field, present in the HookState. You can check it for example in the raw transaction data (Raw TX data) in any payment the user did to the hook account to create or top a vault:
-https://xahau.xrplwin.com/tx/EB9BD926FEAFCEE6D01AC00DACEDAFE9B0982D531E044462AB1EE1BDBA38C559#raw
+https://xahau.xrplwin.com/tx/B6A77D7B0D8605E6BF16CA9FAA918A5521E16DF6D83BCDF7E301834791CADEAA#raw
 
-The Vault ID is use to take over a vault, so we use the Vault ID as Invoice ID. Any user in order to take over a vault has the send a payment transaction which contains the InvoiceID field. The InvoiceID field has to contain the Vault ID the user wants to take over.
+The Vault ID is used to take over a vault, so we use the Vault ID as Invoice ID. Any user in order to take over a vault has the send a payment transaction which contains the InvoiceID field. The InvoiceID field has to contain the Vault ID the user wants to take over.
 
 Take over transaction example:
 
 {
-
-  "TransactionType": "Payment",
-  
-  "Account": "r4VzEm7Jbgg3QkPBgMscoppz6JuzK2Jkbd",
-  
-  "Destination": "r9DSnJkkyva4NdShyxw32Q217B7PMZuB9c",
-  
-  "InvoiceID": "1ED9A5D3DDC00560601FA55482D7956559002B27FFFFFFFF0000000000000000",
-  
-  "Amount": "2000000",
-  
-  "NetworkID": 21337
-  
+"TransactionType": "Payment",
+"Account": "rha1Dgwr2f822JuD5eSiZ7L9mqprCLQDNo",
+"Destination": "r9DSnJkkyva4NdShyxw32Q217B7PMZuB9c",
+"InvoiceID": "1ED9A5D3DDC00560601FA55482D7956559002B27FFFFFFFF0000000000000000",
+"Amount": "1000000",
+"NetworkID": 21337
 }
 
-"Account": "r4VzEm7Jbgg3QkPBgMscoppz6JuzK2Jkbd" = is the user non-owner of the vault that wants to take over the vaoult.
+"Account": "rha1Dgwr2f822JuD5eSiZ7L9mqprCLQDNo" = is the user non-owner of the vault that wants to take over the vaoult.
 
 "Destination": "r9DSnJkkyva4NdShyxw32Q217B7PMZuB9c" = is the hook account.
 
-"InvoiceID": "1ED9A5D3DDC00560601FA55482D7956559002B27FFFFFFFF0000000000000000" = it's the owner of the vault we want to take over, in this case Alice rsF3rBFyQP2zCheJ2woHv46XHvUyKVRK86.
+"InvoiceID": "1ED9A5D3DDC00560601FA55482D7956559002B27FFFFFFFF0000000000000000" = it's the way to refer to the owner and the vault we want to take over, in this case Alice rsF3rBFyQP2zCheJ2woHv46XHvUyKVRK86.
 
-See for example the response we receive when let's say r4VzEm7Jbgg3QkPBgMscoppz6JuzK2Jkbd, not the owner of the valt, tries to take over a vault which has a 15 XAI USD loan debt, but doesn't send enough XAI USD or XAH to take over it, it gets this response "Xai: Vault is undercollateralized and your deposit would not redeem it", as expected. See the result when the user sends just 14 XAI USD:
-https://xahauexplorer.com/explorer/AC9537550CAA30EC6D3B29A15D59702A0F4C658BE2CED133943CEF027F0FBEBF
+See for example the response we receive when let's say rha1Dgwr2f822JuD5eSiZ7L9mqprCLQDNo, not the owner of the valt, tries to take over a vault which has a 10 XAI USD loan debt, but doesn't send enough XAH or XAI USD to take over it, it gets this response "Xai: Vault is undercollateralized and your deposit would not redeem it", as expected. 
+
+See the result when the user sends just 0'0001 XAI USD: "Xai: Vault is undercollateralized and your deposit would not redeem it"
+https://xahauexplorer.com/explorer/02242933F79D8F2CAA877459CC2FA2B23B6AF75EFED687895663F146260F2BC9
+
+See the result when the user sends just 0'001 XAH USD: "Xai: Vault is undercollateralized and your deposit would not redeem it"
+https://xahauexplorer.com/explorer/4758169B006BBCFBA5C21578152AE1080F7328F5D1DADD1FCB280B9C459C45C6
+
+See the result when the user sends just 0'01 XAH USD: "Xai: Vault is undercollateralized and your deposit would not redeem it"
+https://xahauexplorer.com/explorer/C6AAE900DD7A499F229DEF3D466C1D016ACDC8EE12319EF50A5A997FF45DFBAE
+
+See the result when the user sends just 0'1 XAH USD: "Xai: Vault is undercollateralized and your deposit would not redeem it"
+https://xahauexplorer.com/explorer/1047BB03C3D743020A30FA91FA6334E7F49590A5BA92A0DB5766CC09E03C3D57
+
+But see the result when the user sends 1'1 XAH  which covers all -but just- the pending debt (so $10 value for a debt of $10 value): (this has to be improved, it should give all XAH directly and sends a small amount of USD (0'5). IT seems that just XAI has to be send back to take over the vault, so the protocol gives you the needed XAI USD to receive the corresponding amount with XAH. So just send this XAI USD amount to the hook and now it will sent back the proper XAH amount you take over (1'6 XAH, around 16 USD):
+https://xahauexplorer.com/explorer/539266A45BBC3087A8EE20A363332F5A71D85D5FAC26259FC0FC51D93782CC13
+https://xahauexplorer.com/explorer/AD9D9570D2B8780F398D093EAF12DD5ED70DCAD2C2970AC618DBDF8B116CBF3E
+https://xahauexplorer.com/explorer/BE2CC99415DAEAA54C82326543BEA8296350FEF2DDFBC67E29804147B5FB3C14
+https://xahauexplorer.com/explorer/E7B0A49DAD5DFF0B0E31A64DBC563E8F85213D9146BACB3CDF9AF52FA7E9717F
+
+See that the vault once taken over doesn't exist anymore:
+https://xahauexplorer.com/explorer/025924EED5C956628559DECECE0866AD73D4C51C2F61A4950F631462BB8AD7CD
+
 
 ### Critical error in the takeover mode
 
