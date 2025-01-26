@@ -133,17 +133,25 @@ What happens to users vaults now that XAH price went down so their vaults are le
 
 Now that the price went down, users can send back XAI USD or just send XAH in both cases to increase the collateralization of their position. While users vaults are undercollateralized every XAH the corresponding user sends back to the hook account doesn't generate new XAI USD, it is just used to increase the vault collateralization to return again to the 200% ratio.
 
-See for example what happened with Alice vault once XAH price went down to 10 XAI USD (so she has a $10 loan-debt position and a collateral value of $10, so his position is at 100% collateralization. remember the minimum collateralization ratio should be at a maximum of 83%, which is 33% above the initial ratio set at 50% (a loan of $10 USD collateralized with a $20 USD in XAH); when she sends XAH to the hook she receives the following response: "Xai: Vault is undercollateralized, absorbing without sending anything."
+See for example what happened to Alice vault once XAH price went down to 10 XAI USD (so she has a $10 loan-debt position and 1 XAH collateralized that now has $10 value, so his position is at 100% collateralization. Remember that a good collateralization ratio should be at 50% (also called 200%, depending on how you calculate it), and the liquidation ratio is set to 83%, which is 33% above the initial ratio. So when she sends XAH to the hook she receives the following response: "Xai: Vault is undercollateralized, absorbing without sending anything."
 
-She sends 0'001 XAH
+She sends 0'001 XAH (far from the amount needed to secure the vault): "Xai: Vault is undercollateralized, absorbing without sending anything."
 
-She send 0'01 XAH
+https://xahauexplorer.com/explorer/84CB0A88EF1F6B7601E973973A985A1A7A00FFF602BD3F679ED38A2E37C3C7EC
 
-She sends 0'1 XAH
+She sends 0'01 XAH (far from the amount needed to secure the vault): "Xai: Vault is undercollateralized, absorbing without sending anything."
 
-She sends 1 XAH
+https://xahauexplorer.com/explorer/9FF3FFF159471C1DC4F0B1374C84F01D1D7093B4308F80DB0CE635BF5CF29287
 
-https://xahauexplorer.com/explorer/240466812A11CDC49A6D946943F468964FF8211DED52E0DAC30BFB4B5DDEAA42
+She sends 0'1 XAH (far from the amount needed to secure the vault): "Xai: Vault is undercollateralized, absorbing without sending anything."
+
+https://xahauexplorer.com/explorer/9DC71DBB329011499CCE60B5BD9157DD9BBBA85D571122E310F5488498BA2054
+
+She sends 1 XAH (this, with the already 1 XAH initially diposited, and the small previous amount added, puts the vault in a correct colletarilzation, because there will be again around $20 value collateralized (50% ratio, $10 XAU USD loan divided by the $20 current value). The protocol even issues some more XAI USD because the total amount collateralized is 2'111, so the total issued for that position goes up to 10'55 XAI USD)
+
+https://xahauexplorer.com/explorer/896F7DFC6E9652A1698228AE2FF4DCCBF3CF6C4407E0E610F2E801DC89C38034
+
+https://xahauexplorer.com/explorer/F61AB65666243A17B43703A671FCD77945525A7FC16E1B8EB3E650F388624894
 
 ### Take over a vault
 
