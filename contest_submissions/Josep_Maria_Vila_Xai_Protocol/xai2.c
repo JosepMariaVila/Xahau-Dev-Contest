@@ -115,7 +115,7 @@ int64_t hook(uint32_t reserved)
     // execution to here means we have retrieved the exchange rate from the oracle
     TRACEXFL(exchange_rate);
    
-    // process the amount sent, which could be either XAH or XAI
+    // process the amount sent, which could be either XAH or XAI USD
     // to do this we 'slot' the originating txn, that is: we place it into a slot so we can use the slot api
     // to examine its internals
     int64_t oslot = otxn_slot(0);
@@ -189,7 +189,7 @@ int64_t hook(uint32_t reserved)
         // compute new vault XAH by adding the XAH they just sent
         vault_xrp = float_sum(amt, vault_xrp);
 
-        // compute the maximum amount of XAI UAS that can be out according to the collateralization
+        // compute the maximum amount of XAI USD that can be out according to the collateralization
         int64_t max_vault_pusd = float_multiply(vault_xrp, exchange_rate);
         max_vault_pusd =
             float_mulratio(max_vault_pusd, 0, NEW_COLLATERALIZATION_NUMERATOR, NEW_COLLATERALIZATION_DENOMINATOR);
@@ -290,7 +290,7 @@ int64_t hook(uint32_t reserved)
                 rollback(SBUF("Xai: A currency we didn't issue was sent to us."), 1);
         }
 
-        // ensure the currency is XAI
+        // ensure the currency is XAI USD
         for (int i = 8; GUARD(20), i < 28; ++i)
         {
             if (amount_buffer[i] != currency[i - 8])
@@ -306,7 +306,7 @@ int64_t hook(uint32_t reserved)
         uint8_t can_liq = (required_vault_xrp < vault_xrp);
 
 
-        // compute new vault XAI by adding the XAI they just sent
+        // compute new vault XAI USD by adding the XAI USD they just sent
         vault_pusd = float_sum(float_negate(amt), vault_pusd);
 
         // compute the maximum amount of XAI that can be out according to the collateralization
