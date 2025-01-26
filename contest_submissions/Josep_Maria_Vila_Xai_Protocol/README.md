@@ -6,9 +6,9 @@ Xai hook protocol provides an automated way to issue and redeem XAI USD, an over
 
 Sending XAH to it creates a vault and sends back the corresponding amount of XAI USD stablecoin based on the current XAH price. XAI USD can be redeemed at any time against the vault to get back the original XAH.
 
-The collateralization ratio is set to 200%, so for each $100 value of XAH collateralized the protocol issues a loan of $50 value in XAI USD stablecoin, so a 50 XAI USD loan. The liquidation ratio is set to 117%, so if XAH price goes down and the collateral value falls bellow 117%, in this case, if the vault value falls bellow $58'5, then anyone who wants to top up the vault can come along and take it over.
+The collateralization ratio is set to 200%, so for each $10 value of XAH collateralized the protocol issues a loan of $5 value in XAI USD stablecoin, so a 5 XAI USD loan. The liquidation ratio is set to 120%, so if XAH price goes down and the collateral value falls bellow 120%, in this case, if the vault value falls bellow $5'8, then anyone who wants to top up the vault can come along and take it over.
 
-Consider the previous vault, an initial XAH diposit with $100 value and a 50 XAI USD loan issued ($50 loan). Let's say XAH price falls to the point that the initial position has now a $58 value, which results in a 116% collateralization ratio. That means the collateralization is bellow 117% and for that reason the vault can be taken over.
+Consider the previous vault, an initial XAH diposit with $10 value and a 5 XAI USD loan issued ($50 loan). Let's say XAH price falls to the point that the initial position has now a $5'8 value, which results in a 116% collateralization ratio. That means the collateralization is bellow 117% and for that reason the vault can be taken over.
 
 In Loan-to-Value (LTV) terms, an initial loan with 50% the value of the collateral. The position gets liquidated if the LTV ratio goes just above 83%, so a 33% secure margin from the initial position is enforced by the protocol.
 
@@ -46,15 +46,15 @@ Run decode.js, twice, to convert Carlos and Charlie raddresses to binary form, s
 
 If the Carlos account number (the "Account index" number in explorers) is numerically higher than Charlie, switch the accounts (either re-import them, or just switch their names in the following text).
 
-Set up trust limit for the stablecoin user, by running trust-user.js. The script requires 2 parameters:
+Set up trust limit for the stablecoin user for 10.000.000.000, by running trust-user.js. The script requires 2 parameters:
 The user account (Alice) sends the TrustSet transaction, so that the script requires its private key.
 The hook account (Carol) is set up as the trusted issuer. Example:
-Trustline transaction: https://xahauexplorer.com/explorer/61CADE17601483D84DC6BF28EC16634A31FC18101E2551806533EE990657D197
+Trustline transaction: https://xahauexplorer.com/explorer/91C4054C478EB0AAFFE929EB346895D48A5B01D1325AD961FB465F7C9CC6C76B
 
 Set up trust limit on the oracle, by running trust-oracle.js. The script requires 2 parameters:
 The low account (Carlos) sends the TrustSet transaction, so that the script requires its private key.
-The high account (Charlie) is set up as the trusted issuer. In this case we set it initially at 1 XAH = 33 XAI USD:
-Trustline transaction: https://xahauexplorer.com/explorer/136D9947C156DA3646A37C8539D4984CFC4D6C293130EC63FF465F64DD8DBF91
+The high account (Charlie) is set up as the trusted issuer. In this case we set it initially at 1 XAH = 20 XAI USD:
+Trustline transaction: https://xahauexplorer.com/explorer/D8EEC528734E8B79505F523F4086CD4211C603EAC6BC253A5434C68096B85477
 
 The file xai.c contains the hook code and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: 
 https://hooks-toolkit.com/ 
