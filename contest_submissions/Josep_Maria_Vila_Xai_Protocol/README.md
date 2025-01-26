@@ -68,24 +68,24 @@ Parameter 1. parameter name "oracle_lo" = 6F7261636C655F6C6F, set to Carlos (low
 
 Parameter 2. parameter name "oracle_hi" = 6F7261636C655F6869, set to the Charlie (high oracle) binary account = C0C536597D939AE09DBABBA336795A42422207E6
 
-SetHook transaction (Example 1 code, xai.c, xai.wasm): https://xahau.xrplwin.com/tx/C4451CF30DB1BD1CD22127B3A2A4D53ADCC6B714D6595DB4EA153D819C33DD29
+SetHook transaction (Example 1 code, xai.c, xai.wasm): https://xahau.xrplwin.com/tx/79A484F3085C6076E0119F74A86136D32484B57E6E0D850F29520A7D23CA8D01
 
 ### Using the protocol
 
-Set up a payment transaction from Alice (which sends the amount of XAH she wants to collateralize) to Carol (hook, issuer). The hook will issue-mint and send back the corresponding XAI USD stablecoin amount.
+Set up a payment transaction from Alice (which sends the amount of XAH she wants to collateralize) to Carol (hook, issuer). The hook will issue-mint and send back the corresponding XAI USD stablecoin amount. Currently we have set in the oracle the following price: 1 XAH = 20 XAI USD.
 
-Alice user that wants XAI USD stablecoin sends 3 XAH to the XAI USD issuer-hook:
-https://xahauexplorer.com/explorer/EB9BD926FEAFCEE6D01AC00DACEDAFE9B0982D531E044462AB1EE1BDBA38C559
+Alice user that wants XAI USD stablecoin sends 1 XAH to the XAI USD issuer-hook:
+https://xahauexplorer.com/explorer/C6E7049CF83F7C956DFB03CA41AE6A978F5DFC6666AC09ECF0DDABA53CF2A063
 
-Carol XAI USD issuer-hook when receives 3 XAH mints 49'5 XAI USD and sends it to Alice: 
-https://xahauexplorer.com/explorer/B424543808E8CFAF4C777DEE743255C2A2B622438FA92B30E3D761BB3821C3C3
+Carol XAI USD issuer-hook when receives 1 XAH mints 10 XAI USD (initial collateralitzation ratio 200%, so for $20 value issues a loan of $10 value) and sends it to Alice: 
+https://xahauexplorer.com/explorer/47131A52F5C893B48BFBF628F64EA74A8727706FE0B437F93D8F8792E57970EC
 
 From now on any user-account can collateralize XAH and receive XAI USD stablecoin following these steps:
 
 Step 1: set the XAI USD trustline on the user-account scanning the following QR code:
-https://xahau.services/?issuer=r9DSnJkkyva4NdShyxw32Q217B7PMZuB9c&currency=XAI&limit=10000000000
+https://xahau.services/?issuer=r9DSnJkkyva4NdShyxw32Q217B7PMZuB9c&currency=XAI&limit=10000000000 pendent
 
-Step 2: sent a XAH payment from the user-account to Carol-hook-issuer account.
+Step 2: sent a XAH payment from the user-account to Carol-hook-issuer account. pendent
 https://xahauexplorer.com/explorer/34D833E869E3BC398630B72796EACE578CE81961ED44A510DA08D811F01AED18
 https://xahauexplorer.com/explorer/747F79B45121B1F1C518745C93CBBAF416EEF80A3B4986183F8854E5355628C1
 
