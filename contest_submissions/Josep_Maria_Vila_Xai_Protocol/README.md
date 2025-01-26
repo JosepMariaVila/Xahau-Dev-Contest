@@ -83,15 +83,15 @@ https://xahauexplorer.com/explorer/47131A52F5C893B48BFBF628F64EA74A8727706FE0B43
 From now on any user-account can collateralize XAH and receive XAI USD stablecoin following these steps:
 
 Step 1: set the XAI USD trustline on the user-account scanning the following QR code:
-https://xahau.services/?issuer=r9DSnJkkyva4NdShyxw32Q217B7PMZuB9c&currency=XAI&limit=10000000000 pendent
+https://xahau.services/?issuer=r9DSnJkkyva4NdShyxw32Q217B7PMZuB9c&currency=USD&limit=10000000000
 
 Step 2: sent a XAH payment from the user-account to Carol-hook-issuer account. pendent
-https://xahauexplorer.com/explorer/34D833E869E3BC398630B72796EACE578CE81961ED44A510DA08D811F01AED18
-https://xahauexplorer.com/explorer/747F79B45121B1F1C518745C93CBBAF416EEF80A3B4986183F8854E5355628C1
+https://xahauexplorer.com/explorer/9F6D159D5350816D97B60FA2E06EAE5E76C9E744B18FA6D5A9492C7C0AB8D5FF
+https://xahauexplorer.com/explorer/739C76E3DA279F47AEEFA230B5522F0DE942C87A0EF66D4924E54ED6C52EA204
 
 ### The oracle
 
-The exchange rate between XAH and XAI USD stablecoin is the limit set on a trustline established between two special oracle accounts, account oracle Carlos sets a XAI USD trustline to Charlie oracle account setting as a limit the current XAH price on the market. The price of XAH is representend in XAI USD terms using Carlos and Charlie oracles account. In normal circumstances these accounts will update automatically tracking XAH real price expressed in XAI USD stablecoin terms. In this case, Example 1, we set initially and arbitrarily at 1 XAH = 33 XAI USD. 
+The exchange rate between XAH and XAI USD stablecoin is the limit set on a trustline established between two special oracle accounts, account oracle Carlos sets a XAI USD trustline to Charlie oracle account setting as a limit the current XAH price on the market. The price of XAH is representend in XAI USD terms using Carlos and Charlie oracles account. In normal circumstances these accounts will update automatically tracking XAH real price expressed in XAI USD stablecoin terms. In the previous Example 1, we set initially and arbitrarily at 1 XAH = 20 XAI USD. 
 
 ### What happens when XAH price changes
 
