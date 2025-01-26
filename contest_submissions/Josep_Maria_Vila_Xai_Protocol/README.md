@@ -304,7 +304,7 @@ The exchange rate between XAH and XAI USD stablecoin is the limit set on a trust
 
 ### What happens when XAH price changes
 
-In this case we can't show what happens if the price goes up or down because the oracle shows the current XAH price, which is relatively stable, and we can't modifiy it for demostration purposes. To se how the behavior the protocol has when XAH price goes down see EXAMPLE 1 where we change oracle XAH price from 33 XAI USD to 10 XAI USD. When data is available for Example 2 we will update this section.
+In this case we can't show what happens if the price goes up or down because the oracle shows the current XAH price, which is relatively stable, and we can't modifiy it for demostration purposes. To se how the behavior the protocol has when XAH price goes down see EXAMPLE 1 where we change oracle XAH price from 20 XAI USD to 10 XAI USD. When data is available for Example 2 we will update this section.
 
 ## Online demo
 
