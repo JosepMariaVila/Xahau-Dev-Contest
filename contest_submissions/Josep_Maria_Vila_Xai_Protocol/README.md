@@ -96,37 +96,37 @@ The exchange rate between XAH and XAI USD stablecoin is the limit set on a trust
 ### What happens when XAH price changes
 
 Let's assume that XAH price goes down, let's say, to 10 XAI USD, so 1 XAH = 10 XAI USD. Then Carlos oracle account has to change-update the limit on the trustline set to Charlie oracle account, in this case we update it performing and account set transaction updating the trustline limit to 10:
-https://xahauexplorer.com/explorer/DBC693D003E213556035D6331A13799FB6C00145BFAECEFD83E81A4030625B37
+https://xahauexplorer.com/explorer/EE20B7B418BFC68A8A752429B2B32E7431C28A63D2016F8C882BAC6450D960B7
 
 Once the new limit/price is set, Carol hook account sends the new proportional amount of XAI USD corresponding to the new price set. As XAH price went down, the amount of XAI USD sent for the same amount of XAH is much lower. Compare the amounts in the previous examples with the new one. 
 
-We had 2 examples with XAH price set at 33 XAI USD with these results:
+The 2 previous examples had XAH price set at 20 XAI USD with these results:
 
-One user (Alice) sent to the hook 3 XAH and received 49'5 XAI USD.
-
-The other user (Ridworld) sent 5 XAH to the hook and received 82'5 XAI USD.
-
-https://xahauexplorer.com/explorer/EB9BD926FEAFCEE6D01AC00DACEDAFE9B0982D531E044462AB1EE1BDBA38C559
+One user (Alice) sent to the hook 1 XAH ($20 value) and received 10 XAI USD:
 
 https://xahauexplorer.com/explorer/B424543808E8CFAF4C777DEE743255C2A2B622438FA92B30E3D761BB3821C3C3
 
-https://xahauexplorer.com/explorer/34D833E869E3BC398630B72796EACE578CE81961ED44A510DA08D811F01AED18
+https://xahauexplorer.com/explorer/47131A52F5C893B48BFBF628F64EA74A8727706FE0B437F93D8F8792E57970EC
 
-https://xahauexplorer.com/explorer/747F79B45121B1F1C518745C93CBBAF416EEF80A3B4986183F8854E5355628C1
+The other user sent to the hook 2 XAH ($40 value) and received 20 XAI USD:
 
-Here the new results the user obtains once XAH price changed from 33 XAI USD to 10 XAI USD:
+https://xahauexplorer.com/explorer/9F6D159D5350816D97B60FA2E06EAE5E76C9E744B18FA6D5A9492C7C0AB8D5FF
 
-The new user sent to the hook 3 XAH but just received 15 XAI USD (instead of the previous 49'5 XAI USD):
+https://xahauexplorer.com/explorer/739C76E3DA279F47AEEFA230B5522F0DE942C87A0EF66D4924E54ED6C52EA204
 
-https://xahauexplorer.com/explorer/49464AFE057E71D9BAC3695313283D024B06EC987B23228291819563A67DE05C
+Here the results a new user obtains once XAH price has changed from 20 XAI USD to 10 XAI USD and sends XAH to the hook:
 
-https://xahauexplorer.com/explorer/5FBA4D83FEC1C9C937069120F2295171187A9EDA181A158BAC1F1E6D7C9CBF8D
+The new user sent to the hook 1 XAH but just received 5 XAI USD (instead of the previous 10 XAI USD):
 
-Similarly, the new user sent to the hook 5 XAH but just received 15 XAI USD (instead of the previous 82'5 XAI USD):
+https://xahauexplorer.com/explorer/09A775615A7DB784B38E37FDF69635EBDB4198DF703139B3CCD306864E36C1AA
 
-https://xahauexplorer.com/explorer/C846D0943BE874DDDF8B4D0584C10108713350826E8BEF2958494ED9C0203052
+https://xahauexplorer.com/explorer/5F59C30C52E1B9EC6157723BA0BF916B9CC4BBF1602C50DADAA497108B63726A
 
-https://xahauexplorer.com/explorer/1D4C0DC38D08242A0E3ACA1D3A580F5950C3584429A964C29EACD6C7F0CF9220
+Similarly, the new user sent to the hook 2 XAH but just received 10 XAI USD (instead of the previous 20 XAI USD):
+
+https://xahauexplorer.com/explorer/A25A7D5628BDD5E29253FDF37BD6D169F7FCEDC214638EF62C3D0B18B3FDBCCD
+
+https://xahauexplorer.com/explorer/B5A95EB758E18F091C533614ECB06A683DBC6FE79823E05E747781B5265E6EC6
 
 ### Recollateralization
 
