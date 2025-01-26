@@ -185,12 +185,19 @@ The Vault ID is used to take over a vault, so we use the Vault ID as Invoice ID.
 Take over transaction example:
 
 {
+
 "TransactionType": "Payment",
+
 "Account": "rha1Dgwr2f822JuD5eSiZ7L9mqprCLQDNo",
+
 "Destination": "r9DSnJkkyva4NdShyxw32Q217B7PMZuB9c",
+
 "InvoiceID": "1ED9A5D3DDC00560601FA55482D7956559002B27FFFFFFFF0000000000000000",
+
 "Amount": "1000000",
+
 "NetworkID": 21337
+
 }
 
 "Account": "rha1Dgwr2f822JuD5eSiZ7L9mqprCLQDNo" = is the user non-owner of the vault that wants to take over the vaoult.
