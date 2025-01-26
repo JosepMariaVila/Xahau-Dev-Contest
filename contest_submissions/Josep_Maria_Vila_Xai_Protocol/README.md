@@ -104,8 +104,7 @@ The 2 previous examples had XAH price set at 20 XAI USD with these results:
 
 One user (Alice) sent to the hook 1 XAH ($20 value) and received 10 XAI USD:
 
-https://xahauexplorer.com/explorer/B424543808E8CFAF4C777DEE743255C2A2B622438FA92B30E3D761BB3821C3C3
-
+https://xahauexplorer.com/explorer/C6E7049CF83F7C956DFB03CA41AE6A978F5DFC6666AC09ECF0DDABA53CF2A063
 https://xahauexplorer.com/explorer/47131A52F5C893B48BFBF628F64EA74A8727706FE0B437F93D8F8792E57970EC
 
 The other user sent to the hook 2 XAH ($40 value) and received 20 XAI USD:
