@@ -299,14 +299,14 @@ Online demo (pending...): https://skunk-proper-smoothly.ngrok-free.app/tools/xai
 Submissions will be shared and amplified by the @XahauNetwork account, giving your work additional visibility within the community.
 - [x] **First Mandatory Tweet** announcing your participation:
 
-  - **Link to Tweet:** [https://x.com/ainittomai/status/1878919910472270251]
+  - **Link to Tweet:** https://x.com/ainittomai/status/1878919910472270251
 
   **Example Tweet:**
   > We are participating in the Build on Xahau contest! Learn about our project here: [https://github.com/JosepMariaVila/XAI-PROTOCOL]
 
-- [ ] **Second Mandatory Tweet** upon submission for final review:
+- [x] **Second Mandatory Tweet** upon submission for final review:
 
-  - **Link to Tweet:** [Insert the link to your submission tweet here]
+  - **Link to Tweet:** https://x.com/ainittomai/status/1883442794834071812
 
   **Example Tweet:**
   > We have submitted [Project Name] to the Build on Xahau contest, see our submission here: [PR Link]
