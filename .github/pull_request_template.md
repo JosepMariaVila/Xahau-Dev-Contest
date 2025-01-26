@@ -227,7 +227,8 @@ https://xahauexplorer.com/explorer/C6AAE900DD7A499F229DEF3D466C1D016ACDC8EE12319
 See the result when the user sends just 0'1 XAH USD: "Xai: Vault is undercollateralized and your deposit would not redeem it"
 https://xahauexplorer.com/explorer/1047BB03C3D743020A30FA91FA6334E7F49590A5BA92A0DB5766CC09E03C3D57
 
-But see the result when the user sends 1'1 XAH  which covers all -but just- the pending debt (so $10 value for a debt of $10 value): (this has to be improved, it should give all XAH directly and sends a small amount of USD (0'5). IT seems that just XAI has to be send back to take over the vault, so the protocol gives you the needed XAI USD to receive the corresponding amount with XAH. So just send this XAI USD amount to the hook and now it will sent back the proper XAH amount you take over (1'6 XAH, around 16 USD):
+But see the result when the user sends 1'1 XAH  which covers all the pending debt (so $10 value for a debt of $10 value): (this has to be improved, it should give all XAH in the vault directly but sends a small amount of XAI USD (0'5) which if it's send back to the hook then it gives you the correct XAH amount (1'6 XAH in this case, around 16 XAI USD):
+
 https://xahauexplorer.com/explorer/539266A45BBC3087A8EE20A363332F5A71D85D5FAC26259FC0FC51D93782CC13
 https://xahauexplorer.com/explorer/AD9D9570D2B8780F398D093EAF12DD5ED70DCAD2C2970AC618DBDF8B116CBF3E
 https://xahauexplorer.com/explorer/BE2CC99415DAEAA54C82326543BEA8296350FEF2DDFBC67E29804147B5FB3C14
