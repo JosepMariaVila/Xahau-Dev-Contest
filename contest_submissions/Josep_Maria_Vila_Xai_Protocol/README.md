@@ -10,7 +10,7 @@ The collateralization ratio is set to 200%, so for each $10 value of XAH collate
 
 Consider the previous vault, an initial XAH diposit with $10 value and a 5 XAI USD loan issued ($50 loan). Let's say XAH price falls to the point that the initial position has now a $5'8 value, which results in a 116% collateralization ratio. That means the collateralization is bellow 117% and for that reason the vault can be taken over.
 
-In Loan-to-Value (LTV) terms, an initial loan with 50% the value of the collateral. The position gets liquidated if the LTV ratio goes just above 83%, so a 33% secure margin from the initial position is enforced by the protocol.
+In Loan-to-Value (LTV) terms: loan amount divided by XAH value collateralized and the result multiplied by 100. Result: an initial loan at 50%. The position gets liquidated if the LTV ratio goes just above 83%, so a 33% secure margin from the initial position is enforced by the protocol.
 
 For demostration purposes we will create 2 different examples, so we will create 2 similar hooks, one that works with an oracle that reproduces different hypothetical market conditions regarding XAH price, and another one that works with an oracle that follows current XAH price.
 
@@ -131,9 +131,17 @@ https://xahauexplorer.com/explorer/B5A95EB758E18F091C533614ECB06A683DBC6FE79823E
 
 What happens to users vaults now that XAH price went down so their vaults are less collateralized?
 
-Now that the price went down, users can send back XAI USD or just send XAH in both cases to increase the collateralization of their position. While users vaults are undercollateralized every XAH the corresponding user sents back to the hook account doesn't generate new XAI USD, it is just used to increase the vault collateralization to return again to the 200% ratio.
+Now that the price went down, users can send back XAI USD or just send XAH in both cases to increase the collateralization of their position. While users vaults are undercollateralized every XAH the corresponding user sends back to the hook account doesn't generate new XAI USD, it is just used to increase the vault collateralization to return again to the 200% ratio.
 
-See for example what happened with Alice vault once XAH price went down to 10 XAI USD; when she sends XAH to the hook she receives the following response: "Xai: Vault is undercollateralized, absorbing without sending anything."
+See for example what happened with Alice vault once XAH price went down to 10 XAI USD (so she has a $10 loan-debt position and a collateral value of $10, so his position is at 100% collateralization. remember the minimum collateralization ratio should be at a maximum of 83%, which is 33% above the initial ratio set at 50% (a loan of $10 USD collateralized with a $20 USD in XAH); when she sends XAH to the hook she receives the following response: "Xai: Vault is undercollateralized, absorbing without sending anything."
+
+She sends 0'001 XAH
+
+She send 0'01 XAH
+
+She sends 0'1 XAH
+
+She sends 1 XAH
 
 https://xahauexplorer.com/explorer/240466812A11CDC49A6D946943F468964FF8211DED52E0DAC30BFB4B5DDEAA42
 
