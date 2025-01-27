@@ -18,11 +18,11 @@ Xai hook protocol provides an automated way to issue and redeem XAI USD, an over
 
 Sending XAH to it creates a vault and sends back the corresponding amount of XAI USD stablecoin based on the current XAH price. XAI USD can be redeemed at any time against the vault to get back the original XAH.
 
-The collateralization ratio is set to 200%, so for each $10 value of XAH collateralized the protocol issues a loan of $5 value in XAI USD stablecoin, so a 5 XAI USD loan. The liquidation ratio is set to 120%, so if XAH price goes down and the collateral value falls bellow 120%, then anyone who wants to top up the vault can come along and take it over.
+The collateralization ratio is set to 200%, which means that for each $10 value of XAH collateralized (which corresponds to the 100%) the protocol issues a loan of $5 value (which corresponds to the 50%) in XAI USD stablecoin,(so there is an intial collateralization of the 200%). The liquidation ratio is set to 120%, so if XAH price goes down and the collateral value falls bellow 120%, then anyone who wants to top up the vault can come along and take it over. 
 
-Consider a vault with an initial XAH diposit of 10 XAI USD value and a 5 XAI USD loan issued. Let's say XAH price is 10 XAI USD and falls to the point that the initial position has now a 5 XAI USD value, which results in a 100% collateralization ratio. That means the collateralization is bellow 120% and for that reason the vault can be taken over.
+From now on we will use the following terminology to talk about this topic because it's more clear, we refer to the Loan to Value terminology. In Loan-to-Value (LTV) terms: loan amount divided by XAH value collateralized, then multiply the result by 100. Result: an initial loan with a 50% ratio (comparing Loan to Vault-value). The position gets liquidated if the LTV ratio goes just above 83%, so a 33% secure margin from the initial position is enforced by the protocol.
 
-In Loan-to-Value (LTV) terms: loan amount divided by XAH value collateralized and the result multiplied by 100. Result: an initial loan at 50%. The position gets liquidated if the LTV ratio goes just above 83%, so a 33% secure margin from the initial position is enforced by the protocol.
+Consider a vault with an initial XAH diposit of 10 XAI USD value and a 5 XAI USD loan issued (50% LTV collateralization). Let's say XAH price is 10 XAI USD and falls to the point that the initial position has now a 5 XAI USD value, which results in 100% LTV ratio. That means the collateralization is above the maximum allowed LTV allowed, which is set at 83%). and for that reason the vault can be taken over.
 
 For demostration purposes we will create 2 different examples, so we will create 2 similar hooks, one that works with an oracle that reproduces different hypothetical market conditions regarding XAH price, and another one that works with an oracle that follows current XAH price.
 
@@ -340,21 +340,15 @@ Submissions will be shared and amplified by the @XahauNetwork account, giving yo
 
   - **Link to Tweet:** https://x.com/ainittomai/status/1878919910472270251
 
-  **Example Tweet:**
-  > We are participating in the Build on Xahau contest! Learn about our project here: [https://github.com/JosepMariaVila/XAI-PROTOCOL]
-
 - [x] **Second Mandatory Tweet** upon submission for final review:
 
   - **Link to Tweet:** pending...
-
-  **Example Tweet:**
-  > We have submitted [Project Name] to the Build on Xahau contest, see our submission here: [PR Link]
 
 ## Additional Information 📄
 
 ### Acknowledgements
 
-@ekiserrepe, @XRPLWin, @angell_denis, @WietseWind, @nixerFFM
+@ekiserrepe, @XRPLWin, @dangell7, @WietseWind, @nixer89
 
 ### Credit
 
