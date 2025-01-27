@@ -14,7 +14,7 @@ Consider a vault with an initial XAH diposit of 10 XAI USD value and a 5 XAI USD
 
 For demostration purposes we will create 2 different examples, so we will create 2 similar hooks, one that works with an oracle that reproduces different hypothetical market conditions regarding XAH price, and another one that works with an oracle that follows current XAH price.
 
-Example 1: as this project launches on the Xahau mainnet, XAH price in the market doesn't change as required for testing and explanations purposes, so we will use Example 1 to show how the protocol works. In order to do that we need to change the price to show hook behavior in such escenarios. Example 1 uses an oracle where we set XAH price arbitrarily to simulate different market conditions. 
+Example 1: as this project launches on the Xahau mainnet, XAH price in the market doesn't change as required for testing and explanations purposes, so we will use Example 1 to show how the protocol works. In order to do that we need to change the price to show hook behavior in such scenarios. Example 1 uses an oracle where we set XAH price arbitrarily to simulate different market conditions. 
 
 Example 2: here we will create a similar hook that works with XAH real price, we will use Wietse Wind XRPL Labs oracle to obtain XAH price. XAH price is relatively stable so here we can't go beyond the current price, so we will just show how in fact the protocol behaves considering the current XAH price.
 
