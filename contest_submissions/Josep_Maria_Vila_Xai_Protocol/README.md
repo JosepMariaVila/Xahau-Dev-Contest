@@ -171,7 +171,7 @@ https://xahauexplorer.com/explorer/86CB7421CB370BB1E82A0FBAEE09B72E19C6E8D6C85BF
 
 ### Take over a vault
 
-Once a vault goes bellow 120% collateralization any user can take over the vault by sending the needed amount of XAH to bring it back to a secure degree of collateralization above 120%. By doing that the user takes control over the vault.
+Once a vault goes above 83% any user can take over the vault by sending the needed amount of XAH to bring it back to a secure degree of collateralization bellow 83%. By doing that the user takes control over the vault.
 
 Let's consider the previous example but instead of Alice recollateralize his position, she doesn't, and then another user takes over her vault:
 
