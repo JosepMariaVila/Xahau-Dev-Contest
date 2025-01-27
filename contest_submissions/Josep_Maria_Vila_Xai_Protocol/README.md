@@ -89,6 +89,8 @@ Step 2: sent a XAH payment from the user-account to Carol-hook-issuer account, w
 https://xahauexplorer.com/explorer/9F6D159D5350816D97B60FA2E06EAE5E76C9E744B18FA6D5A9492C7C0AB8D5FF
 https://xahauexplorer.com/explorer/739C76E3DA279F47AEEFA230B5522F0DE942C87A0EF66D4924E54ED6C52EA204
 
+Try it! (if you do use an small amount of XAH)
+
 ### The oracle
 
 The exchange rate between XAH and XAI USD stablecoin is the limit set on a trustline established between two special oracle accounts, account oracle Carlos sets a XAI USD trustline to Charlie oracle account setting as a limit the current XAH price on the market. The price of XAH is representend in XAI USD terms using Carlos and Charlie oracles account. In normal circumstances these accounts will update automatically tracking XAH real price expressed in XAI USD stablecoin terms. In the previous Example 1, we set initially and arbitrarily at 1 XAH = 20 XAI USD. 
@@ -307,6 +309,8 @@ https://xahau.services/?issuer=rM9T2RiKDamqz4j5YYvPnVkefgWip3195N&currency=USD&l
 Step 2: sent a XAH payment from the user-account to Carol-hook-XAI-USD-issuer account.
 https://xahauexplorer.com/explorer/0050CCD7BDB540D23526A5FDCCCADCFD941851445019FD7930DD1B7FFFF5A2D1
 https://xahauexplorer.com/explorer/A68E973A9254C11C3A3276798E25645ED3994CA82F5CC97E49627CF5D3A18180
+
+Try it! (if you do use an small amount of XAH)
 
 ### The oracle
 
