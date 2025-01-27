@@ -93,7 +93,7 @@ https://xahauexplorer.com/explorer/739C76E3DA279F47AEEFA230B5522F0DE942C87A0EF66
 
 The exchange rate between XAH and XAI USD stablecoin is the limit set on a trustline established between two special oracle accounts, account oracle Carlos sets a XAI USD trustline to Charlie oracle account setting as a limit the current XAH price on the market. The price of XAH is representend in XAI USD terms using Carlos and Charlie oracles account. In normal circumstances these accounts will update automatically tracking XAH real price expressed in XAI USD stablecoin terms. In the previous Example 1, we set initially and arbitrarily at 1 XAH = 20 XAI USD. 
 
-### What happens when XAH price changes
+### What happens when XAH price changes above liquidation ratio
 
 Let's assume that XAH price goes down, let's say, to 10 XAI USD, so 1 XAH = 10 XAI USD. Then Carlos oracle account has to change-update the limit on the trustline set to Charlie oracle account, in this case we update it performing and account set transaction updating the trustline limit to 10:
 https://xahauexplorer.com/explorer/EE20B7B418BFC68A8A752429B2B32E7431C28A63D2016F8C882BAC6450D960B7
@@ -127,7 +127,7 @@ https://xahauexplorer.com/explorer/A25A7D5628BDD5E29253FDF37BD6D169F7FCEDC214638
 
 https://xahauexplorer.com/explorer/B5A95EB758E18F091C533614ECB06A683DBC6FE79823E05E747781B5265E6EC6
 
-### What happens when XAH price changes just a little
+### What happens when XAH price changes but remains bellow liquidation ratio
 
 If XAH price goes down just a little, let's say it goes from 20 XAI USD to 13 XAI USD, that means the vault is situated at a 77% collateral ratio, which is undercollateralized but nobody can take over the vault because the liquidation ratio starts at 83%. If Alice sends XAH to the vault it just gets absorved to recolletaralize the position:
 
