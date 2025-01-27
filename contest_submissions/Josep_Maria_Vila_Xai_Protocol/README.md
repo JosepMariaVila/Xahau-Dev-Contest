@@ -212,7 +212,7 @@ Take over transaction example:
 
 }
 
-"Account": "rha1Dgwr2f822JuD5eSiZ7L9mqprCLQDNo" = is the user non-owner of the vault that wants to take over the vaoult.
+"Account": "rha1Dgwr2f822JuD5eSiZ7L9mqprCLQDNo" = is the user non-owner of the vault that wants to take over the vault.
 
 "Destination": "r9DSnJkkyva4NdShyxw32Q217B7PMZuB9c" = is the hook account.
 
