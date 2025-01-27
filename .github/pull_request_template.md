@@ -32,7 +32,7 @@ Example 2: here we will create a similar hook that works with XAH real price, we
 
 ## How to Use the Project 🚀
 
-## EXAMPLE 1 (XAH price is set by us arbitrarily for demonstration purposes)
+## EXAMPLE 1 (oracle XAH price set by us arbitrarily for demonstration purposes)
 
 ### Accounts required
 
@@ -50,7 +50,7 @@ Carlos = oracle that stablishes XAH price, low account = oracle_lo
 https://xahauexplorer.com/explorer/rHBsTkCaTR86RGKVt3bTUhZAu2NSTZbNSv
 https://xahau.xrplwin.com/account/rHBsTkCaTR86RGKVt3bTUhZAu2NSTZbNSv
 
-Charlie = oracle that stablishes XAH price, high account = oracle_hi                                                                                                                                                        
+Charlie = oracle that stablishes XAH price, high account = oracle_hi              
 https://xahauexplorer.com/explorer/rJ2GzPBeCoK9NjmJ9vcVntVj2poEvjfvEv
 https://xahau.xrplwin.com/account/rJ2GzPBeCoK9NjmJ9vcVntVj2poEvjfvEv
 
@@ -62,13 +62,13 @@ If the Carlos account number (the "Account index" number in explorers) is numeri
 
 Set up trust limit for the stablecoin user for 10.000.000.000, by running trust-user.js. The script requires 2 parameters:
 The user account (Alice) sends the TrustSet transaction, so that the script requires its private key.
-The hook account (Carol) is set up as the trusted issuer. Example:
-Trustline transaction: https://xahauexplorer.com/explorer/91C4054C478EB0AAFFE929EB346895D48A5B01D1325AD961FB465F7C9CC6C76B
+The hook account (Carol) is set up as the trusted issuer. 
+Example: https://xahauexplorer.com/explorer/91C4054C478EB0AAFFE929EB346895D48A5B01D1325AD961FB465F7C9CC6C76B
 
 Set up trust limit on the oracle, by running trust-oracle.js. The script requires 2 parameters:
 The low account (Carlos) sends the TrustSet transaction, so that the script requires its private key.
 The high account (Charlie) is set up as the trusted issuer. In this case we set it initially at 1 XAH = 20 XAI USD:
-Trustline transaction: https://xahauexplorer.com/explorer/D8EEC528734E8B79505F523F4086CD4211C603EAC6BC253A5434C68096B85477
+https://xahauexplorer.com/explorer/D8EEC528734E8B79505F523F4086CD4211C603EAC6BC253A5434C68096B85477
 
 The file xai.c contains the hook code and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: 
 https://hooks-toolkit.com/ 
@@ -76,7 +76,7 @@ https://hooks-toolkit.com/
 Then the xai.wasm file can be converted to binary code using a tool like this one:
 https://wasdk.github.io/wasmcodeexplorer/
 
-Use that binary format code to deploy the hook to Carol account (hook account, issuer), it has to be set as "ttPayment" and with these 2 parameters (you can use this Xrplwin tool to set the hook, login and paste the binary code and follow instructions: https://xahau.xrplwin.com/tools/hook/from-binary):
+Use that binary format code to deploy the hook to Carol account (hook account, issuer), it has to be set as "ttPayment" and with these 2 parameters. You can use this Xrplwin tool to set the hook, login and paste the binary code and follow instructions): https://xahau.xrplwin.com/tools/hook/from-binary
 
 Parameter 1. parameter name "oracle_lo" = 6F7261636C655F6C6F, set to Carlos (low oracle) binary account = B1683A099ECF7CD79482728A96675967D03FA8E6
 
@@ -91,7 +91,7 @@ Set up a payment transaction from Alice (which sends the amount of XAH she wants
 Alice user that wants XAI USD stablecoin sends 1 XAH to the XAI USD issuer-hook:
 https://xahauexplorer.com/explorer/C6E7049CF83F7C956DFB03CA41AE6A978F5DFC6666AC09ECF0DDABA53CF2A063
 
-Carol XAI USD issuer-hook when receives 1 XAH mints 10 XAI USD (initial collateralitzation ratio 200%, so for $20 value issues a loan of $10 value) and sends it to Alice: 
+Carol XAI USD issuer-hook when receives 1 XAH mints 10 XAI USD (initial LTV collateralitzation ratio 50%, so for $20 value issues a loan of $10 value) and sends it to Alice: 
 https://xahauexplorer.com/explorer/47131A52F5C893B48BFBF628F64EA74A8727706FE0B437F93D8F8792E57970EC
 
 From now on any user-account can collateralize XAH and receive XAI USD stablecoin following these steps:
@@ -99,7 +99,7 @@ From now on any user-account can collateralize XAH and receive XAI USD stablecoi
 Step 1: set the XAI USD trustline on the user-account scanning the following QR code:
 https://xahau.services/?issuer=r9DSnJkkyva4NdShyxw32Q217B7PMZuB9c&currency=USD&limit=10000000000
 
-Step 2: sent a XAH payment from the user-account to Carol-hook-issuer account. pendent
+Step 2: sent a XAH payment from the user-account to Carol-hook-issuer account, which sends XAI USD back accordingly:
 https://xahauexplorer.com/explorer/9F6D159D5350816D97B60FA2E06EAE5E76C9E744B18FA6D5A9492C7C0AB8D5FF
 https://xahauexplorer.com/explorer/739C76E3DA279F47AEEFA230B5522F0DE942C87A0EF66D4924E54ED6C52EA204
 
@@ -108,14 +108,6 @@ https://xahauexplorer.com/explorer/739C76E3DA279F47AEEFA230B5522F0DE942C87A0EF66
 The exchange rate between XAH and XAI USD stablecoin is the limit set on a trustline established between two special oracle accounts, account oracle Carlos sets a XAI USD trustline to Charlie oracle account setting as a limit the current XAH price on the market. The price of XAH is representend in XAI USD terms using Carlos and Charlie oracles account. In normal circumstances these accounts will update automatically tracking XAH real price expressed in XAI USD stablecoin terms. In the previous Example 1, we set initially and arbitrarily at 1 XAH = 20 XAI USD. 
 
 ### What happens when XAH price changes
-
-If XAH price goes down just a little, let's say it goes from 20 XAI USD to 13 XAI USD, that means the vault is situated at a 77% collateral ratio, which is undercollateralized but nobody can take over the vault because the liquidation ratio starts at 83%. If Alice sends XAH to the vault it just gets absorved to recolletaralize the position:
-
-https://xahauexplorer.com/explorer/C69101D70B72D63109A5EF89E14EC42CE1C6D57239DA94C74FEF9540821C3EAF
-
-And if anybody tries to take over the vault, it just throughs the following message: "Xai: Vault is not sufficiently undercollateralized to take over yet."
-
-example: pending... (doesn't work properly, it take over the vault before being above the liquidation ratio)
 
 Let's assume that XAH price goes down, let's say, to 10 XAI USD, so 1 XAH = 10 XAI USD. Then Carlos oracle account has to change-update the limit on the trustline set to Charlie oracle account, in this case we update it performing and account set transaction updating the trustline limit to 10:
 https://xahauexplorer.com/explorer/EE20B7B418BFC68A8A752429B2B32E7431C28A63D2016F8C882BAC6450D960B7
@@ -148,6 +140,16 @@ Similarly, the new user sent to the hook 2 XAH but just received 10 XAI USD (ins
 https://xahauexplorer.com/explorer/A25A7D5628BDD5E29253FDF37BD6D169F7FCEDC214638EF62C3D0B18B3FDBCCD
 
 https://xahauexplorer.com/explorer/B5A95EB758E18F091C533614ECB06A683DBC6FE79823E05E747781B5265E6EC6
+
+### What happens when XAH price changes just a little
+
+If XAH price goes down just a little, let's say it goes from 20 XAI USD to 13 XAI USD, that means the vault is situated at a 77% collateral ratio, which is undercollateralized but nobody can take over the vault because the liquidation ratio starts at 83%. If Alice sends XAH to the vault it just gets absorved to recolletaralize the position:
+
+https://xahauexplorer.com/explorer/C69101D70B72D63109A5EF89E14EC42CE1C6D57239DA94C74FEF9540821C3EAF
+
+And if anybody tries to take over the vault, it just throughs the following message: "Xai: Vault is not sufficiently undercollateralized to take over yet."
+
+example: PENDING DOESN'T WORK PROPERLY, it allows to take over a vault no matter the degreee of undercollateralization it has, in this case it allows to take over a vault which is at 77% collateralization ratio, it should'nt. 
 
 ### Recollateralization
 
@@ -183,7 +185,7 @@ https://xahauexplorer.com/explorer/86CB7421CB370BB1E82A0FBAEE09B72E19C6E8D6C85BF
 
 ### Take over a vault
 
-Once a vault goes bellow 120% collateralization any user can take over the vault by sending the needed amount of XAH to bring it back to a secure degree of collateralization above 120%. By doing that the user takes control over the vault.
+Once a vault goes above 83% any user can take over the vault by sending the needed amount of XAH to bring it back to a secure degree of collateralization bellow 83%. By doing that the user takes control over the vault.
 
 Let's consider the previous example but instead of Alice recollateralize his position, she doesn't, and then another user takes over her vault:
 
@@ -243,7 +245,6 @@ See the result when the user sends just 0'1 XAH USD: "Xai: Vault is undercollate
 https://xahauexplorer.com/explorer/1047BB03C3D743020A30FA91FA6334E7F49590A5BA92A0DB5766CC09E03C3D57
 
 But see the result when the user sends 1'1 XAH  which covers all the pending debt (so $10 value for a debt of $10 value): (this has to be improved, it should give all XAH in the vault directly but sends a small amount of XAI USD (0'5) which if it's send back to the hook then it gives you the correct XAH amount (1'6 XAH in this case, around 16 XAI USD):
-
 https://xahauexplorer.com/explorer/539266A45BBC3087A8EE20A363332F5A71D85D5FAC26259FC0FC51D93782CC13
 https://xahauexplorer.com/explorer/AD9D9570D2B8780F398D093EAF12DD5ED70DCAD2C2970AC618DBDF8B116CBF3E
 https://xahauexplorer.com/explorer/BE2CC99415DAEAA54C82326543BEA8296350FEF2DDFBC67E29804147B5FB3C14
@@ -252,7 +253,7 @@ https://xahauexplorer.com/explorer/E7B0A49DAD5DFF0B0E31A64DBC563E8F85213D9146BAC
 See that the vault once taken over doesn't exist anymore:
 https://xahauexplorer.com/explorer/025924EED5C956628559DECECE0866AD73D4C51C2F61A4950F631462BB8AD7CD
 
-## EXAMPLE 2 (XAH price is set using Wietse Wind oracle)
+## EXAMPLE 2 (XAH price set using Wietse Wind oracle)
 
 ### Accounts required
 
@@ -281,17 +282,17 @@ Run decode.js, twice, to convert Carlos and Charlie raddresses to binary form, s
 Set up trust limit for the stablecoin user, by running trust-user.js. The script requires 2 parameters:
 The user account (Alice) sends the TrustSet transaction, so that the script requires its private key.
 The issuer hook account (Carol) is set up as the trusted issuer.
-Trustline transaction: https://xahauexplorer.com/explorer/D86D91A9CEBA04DC58FFADBDF6EEC3404DCA79CA67B0FFE5F1B4331E8E24E83F
+Trustline transaction: https://xahauexplorer.com/explorer/69BDF9EC3A48A0B2D108A8A29E3778C99AC56AC2FEA1F298585EFFB7C03B5D53
 
 In this case, as the oracle is set by Wietse Wind XRPL Labs, we don't need to do set up the oracle. If for any reason you are setting an oracle yourself, consider this:
 Set up trust limit on the oracle, by running trust-oracle.js. The script requires 2 parameters:
 The low account (Carlos) sends the TrustSet transaction, so that the script requires its private key.
 The high account (Charlie) is set up as the trusted issuer. 
 
-The file xai2.c contains the hook code and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: 
+The file xai.c contains the hook code (the same as for Example 1) and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: 
 https://hooks-toolkit.com/ 
 
-Then the xai2.wasm file can be converted to binary code using a tool like this one:
+Then the xai.wasm file can be converted to binary code using a tool like this one:
 https://wasdk.github.io/wasmcodeexplorer/
 
 Use that binary format code to deploy the hook to Carol account (hook account, issuer), it has to be set as "ttPayment" and with these 2 parameters (you can use this Xrplwin tool to set the hook, login and paste the binary code and follow instructions: https://xahau.xrplwin.com/tools/hook/from-binary):
@@ -300,17 +301,17 @@ Parameter 1. parameter name "oracle_lo" = 6F7261636C655F6C6F, set to Carlos (low
 
 Parameter 2. parameter name "oracle_hi" = 6F7261636C655F6869, set to the Charlie (high oracle) binary account = 5BEF921A217D57FDA5B56D5B40BEE40D1AC1127F
 
-SetHook transaction (Example 2 code, xai2.c, xai2.wasm): https://xahau.xrplwin.com/tx/2095A3169ABC3E0535122EC3173A8AF30230ADF498423702993C30543E01E41D
+SetHook transaction (Example 2 code is the same as Exampe 1, xai.c, xai.wasm, just changes the oracles parameters while installation): https://xahau.xrplwin.com/tx/499D3AB0E35606AA2C660066C88E4EA8F7D91CA99972F8DBC7F771F7D3FA6102
 
 ### Using the protocol
 
 Set up a payment transaction from Alice (which sends the amount of XAH she wants to collateralize) to Carol (hook, issuer). The hook will issue-mint and send back the corresponding XAI USD stablecoin amount. In this case we are dealing with XAH real price, at the time of writting this document XAH price was around 0'08 USD.
 
-Alice user that wants XAI USD stablecoin sends 5 XAH to the XAI USD issuer-hook:
-https://xahauexplorer.com/explorer/A033EA9746B47CABD22215260A19E17F3680D13E35F58BC8AE8188A160A6A6B0
+Alice user that wants XAI USD stablecoin sends 10 XAH to the XAI USD issuer-hook:
+https://xahauexplorer.com/explorer/3E10DEABFFC6D0961BEA6251B6AFE40CF0538251222A34E44B45A17294ADFB0E
 
-Carol XAI USD issuer-hook when receives 5 XAH mints 0'21 XAI USD and sends it to Alice: 
-https://xahauexplorer.com/explorer/58C77CCA37E0FD084A5323C29BECE640BA90FDC4DF1FF322A0FA90156BE96C96
+Carol XAI USD issuer-hook when receives 10 XAH mints 0'379 XAI USD and sends it to Alice: 
+https://xahauexplorer.com/explorer/43BB116BB55C9A104E1F5D152EE0DBD02323ACACA0E4581D1FF08C5E9EF79090
 
 From now on any user-account can collateralize XAH and receive XAI USD stablecoin following these steps (you can try it yourself following these 2 steps, sending a small amount of XAH just for testing purposes):
 
@@ -318,8 +319,8 @@ Step 1: set the XAI USD trustline on the user-account scanning the following QR 
 https://xahau.services/?issuer=rM9T2RiKDamqz4j5YYvPnVkefgWip3195N&currency=USD&limit=10000000000
 
 Step 2: sent a XAH payment from the user-account to Carol-hook-XAI-USD-issuer account.
-https://xahauexplorer.com/explorer/D9D06EF43A367577D3C2927813361F059E630DA8F405320D995BCA53D3E3451F
-https://xahauexplorer.com/explorer/8861E7B9AAC7399E4707671476C71FA8DA8F98CE29F992F45CB9A7E22E1033EE
+https://xahauexplorer.com/explorer/0050CCD7BDB540D23526A5FDCCCADCFD941851445019FD7930DD1B7FFFF5A2D1
+https://xahauexplorer.com/explorer/A68E973A9254C11C3A3276798E25645ED3994CA82F5CC97E49627CF5D3A18180
 
 ### The oracle
 
@@ -342,7 +343,7 @@ Submissions will be shared and amplified by the @XahauNetwork account, giving yo
 
 - [x] **Second Mandatory Tweet** upon submission for final review:
 
-  - **Link to Tweet:** pending...
+  - **Link to Tweet:** 
 
 ## Additional Information 📄
 
