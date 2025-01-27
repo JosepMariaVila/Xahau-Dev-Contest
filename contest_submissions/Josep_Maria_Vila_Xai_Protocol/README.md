@@ -95,14 +95,6 @@ The exchange rate between XAH and XAI USD stablecoin is the limit set on a trust
 
 ### What happens when XAH price changes
 
-If XAH price goes down just a little, let's say it goes from 20 XAI USD to 13 XAI USD, that means the vault is situated at a 77% collateral ratio, which is undercollateralized but nobody can take over the vault because the liquidation ratio starts at 83%. If Alice sends XAH to the vault it just gets absorved to recolletaralize the position:
-
-https://xahauexplorer.com/explorer/C69101D70B72D63109A5EF89E14EC42CE1C6D57239DA94C74FEF9540821C3EAF
-
-And if anybody tries to take over the vault, it just throughs the following message: "Xai: Vault is not sufficiently undercollateralized to take over yet."
-
-example: pending... (doesn't work properly, it take over the vault before being above the liquidation ratio)
-
 Let's assume that XAH price goes down, let's say, to 10 XAI USD, so 1 XAH = 10 XAI USD. Then Carlos oracle account has to change-update the limit on the trustline set to Charlie oracle account, in this case we update it performing and account set transaction updating the trustline limit to 10:
 https://xahauexplorer.com/explorer/EE20B7B418BFC68A8A752429B2B32E7431C28A63D2016F8C882BAC6450D960B7
 
@@ -134,6 +126,16 @@ Similarly, the new user sent to the hook 2 XAH but just received 10 XAI USD (ins
 https://xahauexplorer.com/explorer/A25A7D5628BDD5E29253FDF37BD6D169F7FCEDC214638EF62C3D0B18B3FDBCCD
 
 https://xahauexplorer.com/explorer/B5A95EB758E18F091C533614ECB06A683DBC6FE79823E05E747781B5265E6EC6
+
+### What happens when XAH price changes just a little
+
+If XAH price goes down just a little, let's say it goes from 20 XAI USD to 13 XAI USD, that means the vault is situated at a 77% collateral ratio, which is undercollateralized but nobody can take over the vault because the liquidation ratio starts at 83%. If Alice sends XAH to the vault it just gets absorved to recolletaralize the position:
+
+https://xahauexplorer.com/explorer/C69101D70B72D63109A5EF89E14EC42CE1C6D57239DA94C74FEF9540821C3EAF
+
+And if anybody tries to take over the vault, it just throughs the following message: "Xai: Vault is not sufficiently undercollateralized to take over yet."
+
+example: PENDING DOESN'T WORK PROPERLY, it allows to take over a vault no matter the degreee of undercollateralization it has, in this case it allows to take over a vault which is at 77% collateralization ratio, it should'nt. 
 
 ### Recollateralization
 
