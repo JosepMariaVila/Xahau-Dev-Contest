@@ -10,7 +10,7 @@ The collateralization ratio is set to 200%, which means that for each $10 value 
 
 From now on we will use the Loan to Value terminology. In Loan-to-Value (LTV) terms: a loan (5 XAI USD) divided by XAH value collateralized ($10), which results in 0'5, then multiplied by 100, we have an initial loan at a 50% ratio. The position gets liquidated if the LTV ratio goes above 83% (if the denominator-value goes down the ratio increases). A 33% secure margin from the initial position (50%) until the liquidation ratio starts (83%) is enforced by the protocol.
 
-Consider a vault with an initial XAH diposit of 10 XAI USD value and a 5 XAI USD loan issued (50% LTV collateralization). Let's say XAH price is 10 XAI USD and falls to the point that the initial position has now a 5 XAI USD value, which results in 100% LTV ratio. That means the collateralization is above the maximum allowed LTV allowed, which is set at 83%). and for that reason the vault can be taken over.
+Consider a vault with an initial XAH diposit of 10 XAI USD value and a 5 XAI USD loan issued (50% LTV collateralization). Let's say XAH price is 10 XAI USD and falls to the point that the initial position has now a 5 XAI USD value (so, 5/5 = 1), which results in a 100% LTV ratio. That means the collateralization is above the maximum LTV allowed, which is set at 83%, then the vault can be taken over.
 
 For demostration purposes we will create 2 different examples, so we will create 2 similar hooks, one that works with an oracle that reproduces different hypothetical market conditions regarding XAH price, and another one that works with an oracle that follows current XAH price.
 
