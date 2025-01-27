@@ -6,7 +6,7 @@ Xai hook protocol provides an automated way to issue and redeem XAI USD, an over
 
 Sending XAH to it creates a vault and sends back the corresponding amount of XAI USD stablecoin based on the current XAH price. XAI USD can be redeemed at any time against the vault to get back the original XAH.
 
-The collateralization ratio is set to 200%, so for each $10 value of XAH collateralized the protocol issues a loan of $5 value in XAI USD stablecoin, so a 5 XAI USD loan. The liquidation ratio is set to 120%, so if XAH price goes down and the collateral value falls bellow 120%, then anyone who wants to top up the vault can come along and take it over.
+The collateralization ratio is set to 200%, so for each $10 value of XAH (100%) collateralized the protocol issues a loan of $5 value (50%) in XAI USD stablecoin, so a 5 XAI USD loan (so the intial collateral is 200%). The liquidation ratio is set to 120%, so if XAH price goes down and the collateral value falls bellow 120%, then anyone who wants to top up the vault can come along and take it over.
 
 Consider a vault with an initial XAH diposit of 10 XAI USD value and a 5 XAI USD loan issued. Let's say XAH price is 10 XAI USD and falls to the point that the initial position has now a 5 XAI USD value, which results in a 100% collateralization ratio. That means the collateralization is bellow 120% and for that reason the vault can be taken over.
 
