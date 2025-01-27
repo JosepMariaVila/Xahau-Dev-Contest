@@ -32,7 +32,7 @@ Example 2: here we will create a similar hook that works with XAH real price, we
 
 ## How to Use the Project 🚀
 
-## EXAMPLE 1 (XAH price is fixed and the oracle is set and changed by us arbitrarily for demonstration purposes)
+## EXAMPLE 1 (XAH price is set by us arbitrarily for demonstration purposes)
 
 ### Accounts required
 
