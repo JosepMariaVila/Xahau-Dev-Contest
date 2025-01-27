@@ -159,7 +159,7 @@ She sends 0'1 XAH (far from the amount needed to secure the vault): "Xai: Vault 
 
 https://xahauexplorer.com/explorer/9DC71DBB329011499CCE60B5BD9157DD9BBBA85D571122E310F5488498BA2054
 
-She sends 1 XAH (this, with the already 1 XAH initially diposited, and the small previous amount added, puts the vault in a correct collateralization, because there will be again around $20 value collateralized (50% ratio, $10 XAU USD loan divided by the $20 current value). The protocol even issues some more XAI USD because the total amount collateralized is 2'111, so the total issued for that position goes up to 10'55 XAI USD)
+She sends 1 XAH (this, with the already 1 XAH initially dipposited, and the small previous amount added, puts the vault in a correct collateralization, because there will be again around $20 value collateralized (50% ratio, $10 XAU USD loan divided by the $20 current value). The protocol even issues some more XAI USD because the total amount collateralized is 2'111, so the total issued for that position goes up to 10'55 XAI USD)
 
 https://xahauexplorer.com/explorer/896F7DFC6E9652A1698228AE2FF4DCCBF3CF6C4407E0E610F2E801DC89C38034
 
