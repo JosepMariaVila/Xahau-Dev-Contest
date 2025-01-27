@@ -293,11 +293,11 @@ SetHook transaction (Example 2 code is the same as Exampe 1, xai.c, xai.wasm, ju
 
 Set up a payment transaction from Alice (which sends the amount of XAH she wants to collateralize) to Carol (hook, issuer). The hook will issue-mint and send back the corresponding XAI USD stablecoin amount. In this case we are dealing with XAH real price, at the time of writting this document XAH price was around 0'08 USD.
 
-Alice user that wants XAI USD stablecoin sends 5 XAH to the XAI USD issuer-hook:
-https://xahauexplorer.com/explorer/A033EA9746B47CABD22215260A19E17F3680D13E35F58BC8AE8188A160A6A6B0
+Alice user that wants XAI USD stablecoin sends 10 XAH to the XAI USD issuer-hook:
+https://xahauexplorer.com/explorer/3E10DEABFFC6D0961BEA6251B6AFE40CF0538251222A34E44B45A17294ADFB0E
 
-Carol XAI USD issuer-hook when receives 5 XAH mints 0'21 XAI USD and sends it to Alice: 
-https://xahauexplorer.com/explorer/58C77CCA37E0FD084A5323C29BECE640BA90FDC4DF1FF322A0FA90156BE96C96
+Carol XAI USD issuer-hook when receives 10 XAH mints 0'379 XAI USD and sends it to Alice: 
+https://xahauexplorer.com/explorer/43BB116BB55C9A104E1F5D152EE0DBD02323ACACA0E4581D1FF08C5E9EF79090
 
 From now on any user-account can collateralize XAH and receive XAI USD stablecoin following these steps (you can try it yourself following these 2 steps, sending a small amount of XAH just for testing purposes):
 
@@ -305,8 +305,8 @@ Step 1: set the XAI USD trustline on the user-account scanning the following QR 
 https://xahau.services/?issuer=rM9T2RiKDamqz4j5YYvPnVkefgWip3195N&currency=USD&limit=10000000000
 
 Step 2: sent a XAH payment from the user-account to Carol-hook-XAI-USD-issuer account.
-https://xahauexplorer.com/explorer/D9D06EF43A367577D3C2927813361F059E630DA8F405320D995BCA53D3E3451F
-https://xahauexplorer.com/explorer/8861E7B9AAC7399E4707671476C71FA8DA8F98CE29F992F45CB9A7E22E1033EE
+https://xahauexplorer.com/explorer/0050CCD7BDB540D23526A5FDCCCADCFD941851445019FD7930DD1B7FFFF5A2D1
+https://xahauexplorer.com/explorer/A68E973A9254C11C3A3276798E25645ED3994CA82F5CC97E49627CF5D3A18180
 
 ### The oracle
 
