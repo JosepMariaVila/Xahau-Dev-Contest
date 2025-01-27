@@ -77,7 +77,7 @@ Set up a payment transaction from Alice (which sends the amount of XAH she wants
 Alice user that wants XAI USD stablecoin sends 1 XAH to the XAI USD issuer-hook:
 https://xahauexplorer.com/explorer/C6E7049CF83F7C956DFB03CA41AE6A978F5DFC6666AC09ECF0DDABA53CF2A063
 
-Carol XAI USD issuer-hook when receives 1 XAH mints 10 XAI USD (initial collateralitzation ratio 200%, so for $20 value issues a loan of $10 value) and sends it to Alice: 
+Carol XAI USD issuer-hook when receives 1 XAH mints 10 XAI USD (initial LTV collateralitzation ratio 50%, so for $20 value issues a loan of $10 value) and sends it to Alice: 
 https://xahauexplorer.com/explorer/47131A52F5C893B48BFBF628F64EA74A8727706FE0B437F93D8F8792E57970EC
 
 From now on any user-account can collateralize XAH and receive XAI USD stablecoin following these steps:
