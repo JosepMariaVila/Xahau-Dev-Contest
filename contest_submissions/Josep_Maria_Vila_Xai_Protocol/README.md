@@ -237,7 +237,7 @@ https://xahauexplorer.com/explorer/E7B0A49DAD5DFF0B0E31A64DBC563E8F85213D9146BAC
 See that the vault once taken over doesn't exist anymore:
 https://xahauexplorer.com/explorer/025924EED5C956628559DECECE0866AD73D4C51C2F61A4950F631462BB8AD7CD
 
-## EXAMPLE 2 (XAH price is set using Wietse Wind oracle)
+## EXAMPLE 2 (XAH price set using Wietse Wind oracle)
 
 ### Accounts required
 
