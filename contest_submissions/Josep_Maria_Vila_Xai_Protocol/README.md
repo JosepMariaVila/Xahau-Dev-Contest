@@ -48,13 +48,13 @@ If the Carlos account number (the "Account index" number in explorers) is numeri
 
 Set up trust limit for the stablecoin user for 10.000.000.000, by running trust-user.js. The script requires 2 parameters:
 The user account (Alice) sends the TrustSet transaction, so that the script requires its private key.
-The hook account (Carol) is set up as the trusted issuer. Example:
-Trustline transaction: https://xahauexplorer.com/explorer/91C4054C478EB0AAFFE929EB346895D48A5B01D1325AD961FB465F7C9CC6C76B
+The hook account (Carol) is set up as the trusted issuer. 
+Example: https://xahauexplorer.com/explorer/91C4054C478EB0AAFFE929EB346895D48A5B01D1325AD961FB465F7C9CC6C76B
 
 Set up trust limit on the oracle, by running trust-oracle.js. The script requires 2 parameters:
 The low account (Carlos) sends the TrustSet transaction, so that the script requires its private key.
 The high account (Charlie) is set up as the trusted issuer. In this case we set it initially at 1 XAH = 20 XAI USD:
-Trustline transaction: https://xahauexplorer.com/explorer/D8EEC528734E8B79505F523F4086CD4211C603EAC6BC253A5434C68096B85477
+https://xahauexplorer.com/explorer/D8EEC528734E8B79505F523F4086CD4211C603EAC6BC253A5434C68096B85477
 
 The file xai.c contains the hook code and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: 
 https://hooks-toolkit.com/ 
