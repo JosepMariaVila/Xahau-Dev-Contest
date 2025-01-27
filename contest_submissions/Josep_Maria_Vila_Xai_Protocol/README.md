@@ -93,7 +93,7 @@ Try it! (if you do use an small amount of XAH)
 
 ### The oracle
 
-The exchange rate between XAH and XAI USD stablecoin is the limit set on a trustline established between two special oracle accounts, account oracle Carlos sets a XAI USD trustline to Charlie oracle account setting as a limit the current XAH price on the market. The price of XAH is representend in XAI USD terms using Carlos and Charlie oracles account. In normal circumstances these accounts will update automatically tracking XAH real price expressed in XAI USD stablecoin terms. In the previous Example 1, we set initially and arbitrarily at 1 XAH = 20 XAI USD. 
+The exchange rate between XAH and XAI USD stablecoin is the limit set on a trustline established between two special oracle accounts, account oracle Carlos sets a XAI USD trustline to Charlie oracle account setting as a limit the current XAH price on the market. The price of XAH is represented in XAI USD terms using Carlos and Charlie oracles account. In normal circumstances these accounts will update automatically tracking XAH real price expressed in XAI USD stablecoin terms. In the previous Example 1, we set initially and arbitrarily at 1 XAH = 20 XAI USD. 
 
 ### What happens when XAH price changes above liquidation ratio
 
@@ -135,9 +135,9 @@ If XAH price goes down just a little, let's say it goes from 20 XAI USD to 13 XA
 
 https://xahauexplorer.com/explorer/C69101D70B72D63109A5EF89E14EC42CE1C6D57239DA94C74FEF9540821C3EAF
 
-And if anybody tries to take over the vault, it just throughs the following message: "Xai: Vault is not sufficiently undercollateralized to take over yet."
+And if anybody tries to take over the vault, it just gives the following message: "Xai: Vault is not sufficiently undercollateralized to take over yet."
 
-example: PENDING DOESN'T WORK PROPERLY, it allows to take over a vault no matter the degreee of undercollateralization it has, in this case it allows to take over a vault which is at 77% collateralization ratio, it should'nt. 
+example: PENDING DOESN'T WORK PROPERLY, it allows to take over a vault no matter the degreee of undercollateralization it has, in this case it allows to take over a vault which is at 77% collateralization ratio, it shouldn't. 
 
 ### Recollateralization
 
@@ -159,13 +159,13 @@ She sends 0'1 XAH (far from the amount needed to secure the vault): "Xai: Vault 
 
 https://xahauexplorer.com/explorer/9DC71DBB329011499CCE60B5BD9157DD9BBBA85D571122E310F5488498BA2054
 
-She sends 1 XAH (this, with the already 1 XAH initially diposited, and the small previous amount added, puts the vault in a correct colletarilzation, because there will be again around $20 value collateralized (50% ratio, $10 XAU USD loan divided by the $20 current value). The protocol even issues some more XAI USD because the total amount collateralized is 2'111, so the total issued for that position goes up to 10'55 XAI USD)
+She sends 1 XAH (this, with the already 1 XAH initially diposited, and the small previous amount added, puts the vault in a correct collateralization, because there will be again around $20 value collateralized (50% ratio, $10 XAU USD loan divided by the $20 current value). The protocol even issues some more XAI USD because the total amount collateralized is 2'111, so the total issued for that position goes up to 10'55 XAI USD)
 
 https://xahauexplorer.com/explorer/896F7DFC6E9652A1698228AE2FF4DCCBF3CF6C4407E0E610F2E801DC89C38034
 
 https://xahauexplorer.com/explorer/F61AB65666243A17B43703A671FCD77945525A7FC16E1B8EB3E650F388624894
 
-Now, if she sends back the XAI USD borrowed the protocol sends back his XAI and the vault dissapears:
+Now, if she sends back the XAI USD borrowed the protocol sends back his XAI and the vault dissappears:
 
 https://xahauexplorer.com/explorer/C93E3895574C6D6B48BD8AA4357D57D729E4AA03A153435DD9C145D5E428F6B4
 
