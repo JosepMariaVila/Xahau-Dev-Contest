@@ -275,7 +275,7 @@ Set up trust limit on the oracle, by running trust-oracle.js. The script require
 The low account (Carlos) sends the TrustSet transaction, so that the script requires its private key.
 The high account (Charlie) is set up as the trusted issuer. 
 
-The file xai.c contains the hook code and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: 
+The file xai.c contains the hook code (the same as for Example 1) and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: 
 https://hooks-toolkit.com/ 
 
 Then the xai.wasm file can be converted to binary code using a tool like this one:
@@ -287,7 +287,7 @@ Parameter 1. parameter name "oracle_lo" = 6F7261636C655F6C6F, set to Carlos (low
 
 Parameter 2. parameter name "oracle_hi" = 6F7261636C655F6869, set to the Charlie (high oracle) binary account = 5BEF921A217D57FDA5B56D5B40BEE40D1AC1127F
 
-SetHook transaction (Example 2 code is the same as Exampe 1, xai.c, xai.wasm, just changes the parameters while installation): https://xahau.xrplwin.com/tx/499D3AB0E35606AA2C660066C88E4EA8F7D91CA99972F8DBC7F771F7D3FA6102
+SetHook transaction (Example 2 code is the same as Exampe 1, xai.c, xai.wasm, just changes the oracles parameters while installation): https://xahau.xrplwin.com/tx/499D3AB0E35606AA2C660066C88E4EA8F7D91CA99972F8DBC7F771F7D3FA6102
 
 ### Using the protocol
 
