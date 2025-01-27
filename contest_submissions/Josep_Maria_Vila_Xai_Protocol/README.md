@@ -268,17 +268,17 @@ Run decode.js, twice, to convert Carlos and Charlie raddresses to binary form, s
 Set up trust limit for the stablecoin user, by running trust-user.js. The script requires 2 parameters:
 The user account (Alice) sends the TrustSet transaction, so that the script requires its private key.
 The issuer hook account (Carol) is set up as the trusted issuer.
-Trustline transaction: https://xahauexplorer.com/explorer/D86D91A9CEBA04DC58FFADBDF6EEC3404DCA79CA67B0FFE5F1B4331E8E24E83F
+Trustline transaction: https://xahauexplorer.com/explorer/69BDF9EC3A48A0B2D108A8A29E3778C99AC56AC2FEA1F298585EFFB7C03B5D53
 
 In this case, as the oracle is set by Wietse Wind XRPL Labs, we don't need to do set up the oracle. If for any reason you are setting an oracle yourself, consider this:
 Set up trust limit on the oracle, by running trust-oracle.js. The script requires 2 parameters:
 The low account (Carlos) sends the TrustSet transaction, so that the script requires its private key.
 The high account (Charlie) is set up as the trusted issuer. 
 
-The file xai2.c contains the hook code and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: 
+The file xai.c contains the hook code and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: 
 https://hooks-toolkit.com/ 
 
-Then the xai2.wasm file can be converted to binary code using a tool like this one:
+Then the xai.wasm file can be converted to binary code using a tool like this one:
 https://wasdk.github.io/wasmcodeexplorer/
 
 Use that binary format code to deploy the hook to Carol account (hook account, issuer), it has to be set as "ttPayment" and with these 2 parameters (you can use this Xrplwin tool to set the hook, login and paste the binary code and follow instructions: https://xahau.xrplwin.com/tools/hook/from-binary):
@@ -287,7 +287,7 @@ Parameter 1. parameter name "oracle_lo" = 6F7261636C655F6C6F, set to Carlos (low
 
 Parameter 2. parameter name "oracle_hi" = 6F7261636C655F6869, set to the Charlie (high oracle) binary account = 5BEF921A217D57FDA5B56D5B40BEE40D1AC1127F
 
-SetHook transaction (Example 2 code, xai2.c, xai2.wasm): https://xahau.xrplwin.com/tx/2095A3169ABC3E0535122EC3173A8AF30230ADF498423702993C30543E01E41D
+SetHook transaction (Example 2 code is the same as Exampe 1, xai.c, xai.wasm, just changes the parameters while installation): https://xahau.xrplwin.com/tx/499D3AB0E35606AA2C660066C88E4EA8F7D91CA99972F8DBC7F771F7D3FA6102
 
 ### Using the protocol
 
