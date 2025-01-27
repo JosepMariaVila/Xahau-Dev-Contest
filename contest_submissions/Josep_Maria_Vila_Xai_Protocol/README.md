@@ -18,7 +18,7 @@ Example 1: as this project launches on the Xahau mainnet, XAH price in the marke
 
 Example 2: here we will create a similar hook that works with XAH real price, we will use Wietse Wind XRPL Labs oracle to obtain XAH price. XAH price is relatively stable so here we can't go beyond the current price, so we will just show how in fact the protocol behaves considering the current XAH price.
 
-## EXAMPLE 1 (oracle XAH price set and changed by us arbitrarily for demonstration purposes)
+## EXAMPLE 1 (oracle XAH price set by us arbitrarily for demonstration purposes)
 
 ### Accounts required
 
