@@ -46,12 +46,12 @@ Run decode.js, twice, to convert Carlos and Charlie raddresses to binary form, s
 
 If the Carlos account number (the "Account index" number in explorers) is numerically higher than Charlie, switch the accounts (either re-import them, or just switch their names in the following text).
 
-Set up trust limit for the stablecoin user for 10.000.000.000, by running trust-user.js. The script requires 2 parameters:
+Set up trust limit for the stablecoin user for 10.000.000.000, by running trust-user.ts. The script requires 2 parameters:
 The user account (Alice) sends the TrustSet transaction, so that the script requires its private key.
 The hook account (Carol) is set up as the trusted issuer. 
 Example: https://xahauexplorer.com/explorer/91C4054C478EB0AAFFE929EB346895D48A5B01D1325AD961FB465F7C9CC6C76B
 
-Set up trust limit on the oracle, by running trust-oracle.js. The script requires 2 parameters:
+Set up trust limit on the oracle, by running trust-oracle.ts. The script requires 2 parameters:
 The low account (Carlos) sends the TrustSet transaction, so that the script requires its private key.
 The high account (Charlie) is set up as the trusted issuer. In this case we set it initially at 1 XAH = 20 XAI USD:
 https://xahauexplorer.com/explorer/D8EEC528734E8B79505F523F4086CD4211C603EAC6BC253A5434C68096B85477
@@ -265,13 +265,13 @@ https://xahau.xrplwin.com/account/r9PfV3sQpKLWxccdg3HL2FXKxGW2orAcLE
 
 Run decode.js, twice, to convert Carlos and Charlie raddresses to binary form, save the values somewhere. You can obtain the same result using this tool: https://hooks.services/tools/raddress-to-accountid
 
-Set up trust limit for the stablecoin user, by running trust-user.js. The script requires 2 parameters:
+Set up trust limit for the stablecoin user, by running trust-user.ts. The script requires 2 parameters:
 The user account (Alice) sends the TrustSet transaction, so that the script requires its private key.
 The issuer hook account (Carol) is set up as the trusted issuer.
 Trustline transaction: https://xahauexplorer.com/explorer/69BDF9EC3A48A0B2D108A8A29E3778C99AC56AC2FEA1F298585EFFB7C03B5D53
 
 In this case, as the oracle is set by Wietse Wind XRPL Labs, we don't need to do set up the oracle. If for any reason you are setting an oracle yourself, consider this:
-Set up trust limit on the oracle, by running trust-oracle.js. The script requires 2 parameters:
+Set up trust limit on the oracle, by running trust-oracle.ts. The script requires 2 parameters:
 The low account (Carlos) sends the TrustSet transaction, so that the script requires its private key.
 The high account (Charlie) is set up as the trusted issuer. 
 
