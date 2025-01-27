@@ -293,7 +293,7 @@ SetHook transaction (Example 2 code is the same as Exampe 1, xai.c, xai.wasm, ju
 
 ### Using the protocol
 
-Set up a payment transaction from Alice (which sends the amount of XAH she wants to collateralize) to Carol (hook, issuer). The hook will issue-mint and send back the corresponding XAI USD stablecoin amount. In this case we are dealing with XAH real price, at the time of writting this document XAH price was around 0'08 USD.
+Set up a payment transaction from Alice (which sends the amount of XAH she wants to collateralize) to Carol (hook, issuer). The hook will issue-mint and send back the corresponding XAI USD stablecoin amount. In this case we are dealing with XAH real price, at the time of writing this document XAH price was around 0'08 USD.
 
 Alice user that wants XAI USD stablecoin sends 10 XAH to the XAI USD issuer-hook:
 https://xahauexplorer.com/explorer/3E10DEABFFC6D0961BEA6251B6AFE40CF0538251222A34E44B45A17294ADFB0E
@@ -314,11 +314,11 @@ Try it! (if you do use an small amount of XAH)
 
 ### The oracle
 
-The exchange rate between XAH and XAI USD stablecoin is the limit set on a trustline established between two special oracle accounts, Carlos oracle account sets a XAI USD trustline to Charlie oracle account setting as a limit the current XAH price on the market. The price of XAH is representend in XAI USD terms using Carlos and Charlie oracles account. In this case this oracle set for XAH on Xahau (https://xahauexplorer.com/explorer/rXUMMaPpZqPutoRszR29jtC8amWq3APkx) is set by Wietse Wind from XRPL Labs, it fetches XAH price information using exchange API's and updates the oracle trustline limit with that price, see his proposal here: https://dev.to/wietse/aggregated-xrp-usd-price-info-on-the-xrp-ledger-1087, and the code here: https://github.com/XRPL-Labs/XRP-Price-Aggregator, and here: https://github.com/XRPL-Labs/XRPL-Persist-Price-Oracle.
+The exchange rate between XAH and XAI USD stablecoin is the limit set on a trustline established between two special oracle accounts, Carlos oracle account sets a XAI USD trustline to Charlie oracle account setting as a limit the current XAH price on the market. The price of XAH is represented in XAI USD terms using Carlos and Charlie oracles account. In this case this oracle set for XAH on Xahau (https://xahauexplorer.com/explorer/rXUMMaPpZqPutoRszR29jtC8amWq3APkx) is set by Wietse Wind from XRPL Labs, it fetches XAH price information using exchange API's and updates the oracle trustline limit with that price, see his proposal here: https://dev.to/wietse/aggregated-xrp-usd-price-info-on-the-xrp-ledger-1087, and the code here: https://github.com/XRPL-Labs/XRP-Price-Aggregator, and here: https://github.com/XRPL-Labs/XRPL-Persist-Price-Oracle.
 
 ### What happens when XAH price changes
 
-In this case we can't show what happens if the price goes up or down because the oracle shows the current XAH price, which is relatively stable, and we can't modifiy it for demostration purposes. To se how the behavior the protocol has when XAH price goes down see EXAMPLE 1 where we change oracle XAH price from 20 XAI USD to 10 XAI USD. When data is available for Example 2 we will update this section.
+In this case we can't show what happens if the price goes up or down because the oracle shows the current XAH price, which is relatively stable, and we can't modify it for demonstration purposes. To see how the behavior the protocol has when XAH price goes down see EXAMPLE 1 where we change oracle XAH price from 20 XAI USD to 10 XAI USD. When data is available for Example 2 we will update this section.
 
 ## Online demo
 
