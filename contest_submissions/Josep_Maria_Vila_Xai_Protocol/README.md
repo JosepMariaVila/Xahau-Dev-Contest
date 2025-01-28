@@ -16,7 +16,7 @@ For demonstration purposes we will create 2 different examples, so we will creat
 
 Example 1: as this project launches on the Xahau mainnet, XAH price in the market doesn't change as required for testing and explanations purposes, so we will use Example 1 to show how the protocol works. In order to do that we need to change the price to show hook behavior in such scenarios. Example 1 uses an oracle where we set XAH price arbitrarily to simulate different market conditions. 
 
-Example 2: here we will create a similar hook that works with XAH real price, we will use Wietse Wind XRPL Labs oracle to obtain XAH price. XAH price is relatively stable so here we can't go beyond the current price, so we will just show how in fact the protocol behaves considering the current XAH price.
+Example 2: here we will create a similar hook (the same hook, just changing parameters during installation) that works with XAH real price, we will use Wietse Wind XRPL Labs oracle to obtain XAH price. XAH price is relatively stable so here we can't go beyond the current price, so we will just show how in fact the protocol behaves considering the current XAH price.
 
 ## EXAMPLE 1 (oracle XAH price set by us arbitrarily for demonstration purposes)
 
