@@ -98,7 +98,7 @@ The exchange rate between XAH and XAI USD stablecoin is the limit set on a trust
 Let's assume that XAH price goes down, let's say, to 10 XAI USD, so 1 XAH = 10 XAI USD. Then Carlos oracle account has to change-update the limit on the trustline set to Charlie oracle account, in this case we update it performing and account set transaction updating the trustline limit to 10:
 https://xahauexplorer.com/explorer/EE20B7B418BFC68A8A752429B2B32E7431C28A63D2016F8C882BAC6450D960B7
 
-Once the new limit/price is set, Carol hook account sends the new proportional amount of XAI USD corresponding to the new price set. As XAH price went down, the amount of XAI USD sent for the same amount of XAH is much lower. Compare the amounts in the previous examples with the new one. 
+Once the new limit/price is set, every time a new vault is created will be created according that current price (and existing vaults will be recollateralized according that price every time users send more XAH for that purpose). As XAH price went down, the amount of XAI USD sent for the same amount of XAH is much lower. Compare the amounts in the previous examples with the new one. 
 
 The 2 previous examples had XAH price set at 20 XAI USD with these results:
 
