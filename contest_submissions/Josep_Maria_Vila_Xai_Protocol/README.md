@@ -16,7 +16,7 @@ For demonstration purposes we will create 2 different examples, so we will creat
 
 Example 1: as this project launches on the Xahau mainnet, XAH price in the market doesn't change as required for testing and explanations purposes, so we will use Example 1 to show how the protocol works. In order to do that we need to change the price to show hook behavior in such scenarios. Example 1 uses an oracle where we set XAH price arbitrarily to simulate different market conditions. 
 
-Example 2: here we will create a similar hook (the same hook, just changing parameters during installation) that works with XAH real price, we will use Wietse Wind XRPL Labs oracle to obtain XAH price. XAH price is relatively stable so here we can't go beyond the current price, so we will just show how in fact the protocol behaves considering the current XAH price.
+Example 2: here we will create a similar hook (the same hook, just changing the install parameters during installation) that works with XAH real price, we will use Wietse Wind XRPL Labs oracle to obtain XAH price. XAH price is relatively stable so here we can't go beyond the current price, so we will just show how in fact the protocol behaves considering the current XAH price.
 
 ## EXAMPLE 1 (oracle XAH price set by us arbitrarily for demonstration purposes)
 
@@ -280,13 +280,13 @@ Let's set up the hook now, the file xai.c contains the hook code (the same as fo
 
 Then the xai.wasm file can be converted to binary code using a tool like this one: https://wasdk.github.io/wasmcodeexplorer/
 
-Use that binary format code to deploy the hook to Carol account (hook account, issuer), it has to be set as "ttPayment" and in this case with these 2 parameters corresponding to XAH Wietse oracle (you can use this Xrplwin tool to set the hook, login and paste the binary code and follow instructions: https://xahau.xrplwin.com/tools/hook/from-binary):
+Use that binary format code to deploy the hook to Carol account (hook account, issuer), it has to be set as "ttPayment" and in this case with these 2 install parameters corresponding to XAH Wietse oracle (you can use this Xrplwin tool to set the hook, login and paste the binary code and follow instructions: https://xahau.xrplwin.com/tools/hook/from-binary):
 
 Parameter 1. parameter name "oracle_lo" = 6F7261636C655F6C6F, acting as Carlos (low oracle) binary account (Wietse oracle: rXUMMaPpZqPutoRszR29jtC8amWq3APkx) = 05B5F43AF717B81948491FB7079E4F173F4ECEB3
 
 Parameter 2. parameter name "oracle_hi" = 6F7261636C655F6869, acting as Charlie (high oracle) binary account (Wietse oracle: r9PfV3sQpKLWxccdg3HL2FXKxGW2orAcLE) = 5BEF921A217D57FDA5B56D5B40BEE40D1AC1127F
 
-SetHook transaction (Example 2 code is the same as Exampe 1, xai.c, xai.wasm, just changes the oracles parameters while installation): https://xahau.xrplwin.com/tx/499D3AB0E35606AA2C660066C88E4EA8F7D91CA99972F8DBC7F771F7D3FA6102
+SetHook transaction (Example 2 code is the same as Exampe 1, xai.c, xai.wasm, just changes the install parameters while installation): https://xahau.xrplwin.com/tx/499D3AB0E35606AA2C660066C88E4EA8F7D91CA99972F8DBC7F771F7D3FA6102
 
 ### Using the protocol
 
