@@ -270,7 +270,7 @@ The user account (Alice) sends the TrustSet transaction, so that the script requ
 The issuer hook account (Carol) is set up as the trusted issuer.
 Trustline transaction: https://xahauexplorer.com/explorer/69BDF9EC3A48A0B2D108A8A29E3778C99AC56AC2FEA1F298585EFFB7C03B5D53
 
-In this case, as the oracle is set by Wietse Wind XRPL Labs, we don't need to do set up the oracle. If for any reason you are setting an oracle yourself, consider this:
+In this case, as the oracle is set by Wietse Wind XRPL Labs, we don't need to set up the oracle. If for any reason you are setting an oracle yourself, consider this:
 
 Convert Carlos and Charlie raddresses to binary form, save the values somewhere. You can do it using this tool: https://hooks.services/tools/raddress-to-accountid
 
