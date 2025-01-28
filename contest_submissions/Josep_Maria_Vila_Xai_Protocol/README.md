@@ -277,7 +277,7 @@ Set up trust limit on the oracle, by running trust-oracle.ts. The script require
 The low account (Carlos) sends the TrustSet transaction, so that the script requires its private key.
 The high account (Charlie) is set up as the trusted issuer. 
 
-Let's set up the hook now, the file xai.c contains the hook code (the same as for Example 1) and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: https://hooks-toolkit.com/ 
+Let's set up the hook now, the file xai.c contains the hook code (the same as for Example 1) and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: https://hooks-toolkit.com/#building-and-running-the-contracts 
 
 Then the xai.wasm file can be converted to binary code using a tool like this one:
 https://wasdk.github.io/wasmcodeexplorer/
