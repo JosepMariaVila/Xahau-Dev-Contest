@@ -56,7 +56,7 @@ The low account (Carlos) sends the TrustSet transaction, so that the script requ
 The high account (Charlie) is set up as the trusted issuer. In this case we set it initially at 1 XAH = 20 XAI USD:
 https://xahauexplorer.com/explorer/D8EEC528734E8B79505F523F4086CD4211C603EAC6BC253A5434C68096B85477
 
-In order to set up the hook, the file xai.c contains the hook code and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: https://hooks-toolkit.com/ 
+In order to set up the hook, the file xai.c contains the hook code and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: https://hooks-toolkit.com/#building-and-running-the-contracts
 
 Then the xai.wasm file can be converted to binary code using a tool like this one:
 https://wasdk.github.io/wasmcodeexplorer/
