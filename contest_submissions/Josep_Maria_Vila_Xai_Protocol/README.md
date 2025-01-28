@@ -265,29 +265,29 @@ https://xahau.xrplwin.com/account/r9PfV3sQpKLWxccdg3HL2FXKxGW2orAcLE
 
 ### Set up process
 
-Run decode.js, twice, to convert Carlos and Charlie raddresses to binary form, save the values somewhere. You can obtain the same result using this tool: https://hooks.services/tools/raddress-to-accountid
-
 Set up trust limit for the stablecoin user, by running trust-user.ts. The script requires 2 parameters:
 The user account (Alice) sends the TrustSet transaction, so that the script requires its private key.
 The issuer hook account (Carol) is set up as the trusted issuer.
 Trustline transaction: https://xahauexplorer.com/explorer/69BDF9EC3A48A0B2D108A8A29E3778C99AC56AC2FEA1F298585EFFB7C03B5D53
 
 In this case, as the oracle is set by Wietse Wind XRPL Labs, we don't need to do set up the oracle. If for any reason you are setting an oracle yourself, consider this:
+
+Run decode.js, twice, to convert Carlos and Charlie raddresses to binary form, save the values somewhere. You can obtain the same result using this tool: https://hooks.services/tools/raddress-to-accountid
+
 Set up trust limit on the oracle, by running trust-oracle.ts. The script requires 2 parameters:
 The low account (Carlos) sends the TrustSet transaction, so that the script requires its private key.
 The high account (Charlie) is set up as the trusted issuer. 
 
-The file xai.c contains the hook code (the same as for Example 1) and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: 
-https://hooks-toolkit.com/ 
+Let's set up the hook now, the file xai.c contains the hook code (the same as for Example 1) and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: https://hooks-toolkit.com/ 
 
 Then the xai.wasm file can be converted to binary code using a tool like this one:
 https://wasdk.github.io/wasmcodeexplorer/
 
-Use that binary format code to deploy the hook to Carol account (hook account, issuer), it has to be set as "ttPayment" and with these 2 parameters (you can use this Xrplwin tool to set the hook, login and paste the binary code and follow instructions: https://xahau.xrplwin.com/tools/hook/from-binary):
+Use that binary format code to deploy the hook to Carol account (hook account, issuer), it has to be set as "ttPayment" and in this case with these 2 parameters corresponding to XAH Wietse oracle (you can use this Xrplwin tool to set the hook, login and paste the binary code and follow instructions: https://xahau.xrplwin.com/tools/hook/from-binary):
 
-Parameter 1. parameter name "oracle_lo" = 6F7261636C655F6C6F, set to Carlos (low oracle) binary account = 05B5F43AF717B81948491FB7079E4F173F4ECEB3
+Parameter 1. parameter name "oracle_lo" = 6F7261636C655F6C6F, acting as Carlos (low oracle) binary account (Wietse oracle: rXUMMaPpZqPutoRszR29jtC8amWq3APkx) = 05B5F43AF717B81948491FB7079E4F173F4ECEB3
 
-Parameter 2. parameter name "oracle_hi" = 6F7261636C655F6869, set to the Charlie (high oracle) binary account = 5BEF921A217D57FDA5B56D5B40BEE40D1AC1127F
+Parameter 2. parameter name "oracle_hi" = 6F7261636C655F6869, acting as Charlie (high oracle) binary account (Wietse oracle: r9PfV3sQpKLWxccdg3HL2FXKxGW2orAcLE) = 5BEF921A217D57FDA5B56D5B40BEE40D1AC1127F
 
 SetHook transaction (Example 2 code is the same as Exampe 1, xai.c, xai.wasm, just changes the oracles parameters while installation): https://xahau.xrplwin.com/tx/499D3AB0E35606AA2C660066C88E4EA8F7D91CA99972F8DBC7F771F7D3FA6102
 
