@@ -80,7 +80,7 @@ https://xahauexplorer.com/explorer/47131A52F5C893B48BFBF628F64EA74A8727706FE0B43
 
 From now on any user-account can collateralize XAH and receive XAI USD stablecoin following these steps:
 
-Step 1: set the XAI USD trustline on the user-account scanning the following QR code:
+Step 1: set the XAI USD trustline on the user-account scanning the following QR code:                                                    
 https://xahau.services/?issuer=r9DSnJkkyva4NdShyxw32Q217B7PMZuB9c&currency=USD&limit=10000000000
 
 Step 2: sent a XAH payment from the user-account to Carol-hook-issuer account, which sends XAI USD back accordingly:
