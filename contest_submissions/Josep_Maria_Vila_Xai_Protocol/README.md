@@ -163,7 +163,7 @@ https://xahauexplorer.com/explorer/896F7DFC6E9652A1698228AE2FF4DCCBF3CF6C4407E0E
 
 https://xahauexplorer.com/explorer/F61AB65666243A17B43703A671FCD77945525A7FC16E1B8EB3E650F388624894
 
-Now, if she sends back the XAI USD borrowed the protocol sends back his XAI and the vault dissappears:
+Now, if she sends back the XAI USD borrowed the protocol sends back his XAH and the vault dissappears:
 
 https://xahauexplorer.com/explorer/C93E3895574C6D6B48BD8AA4357D57D729E4AA03A153435DD9C145D5E428F6B4
 
