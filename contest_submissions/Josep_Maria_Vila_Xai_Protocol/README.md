@@ -219,21 +219,19 @@ Take over transaction example:
 
 "InvoiceID": "1ED9A5D3DDC00560601FA55482D7956559002B27FFFFFFFF0000000000000000" = it's the way to refer to the owner and the vault we want to take over, in this case Alice rsF3rBFyQP2zCheJ2woHv46XHvUyKVRK86.
 
-See for example the response we receive when let's say rha1Dgwr2f822JuD5eSiZ7L9mqprCLQDNo, not the owner of the valt, tries to take over a vault which has a 10 XAI USD loan debt, but doesn't send enough XAH or XAI USD to take over it, it gets this response "Xai: Vault is undercollateralized and your deposit would not redeem it", as expected. 
+See the responses we receive when let's say rha1Dgwr2f822JuD5eSiZ7L9mqprCLQDNo, not the owner of the valt, tries to take over a vault which has a 10 XAI USD loan debt, but doesn't send enough XAH or XAI USD to take over it: "Xai: Vault is undercollateralized and your deposit would not redeem it", as expected. 
 
-See the result when the user sends just 0'0001 XAI USD: "Xai: Vault is undercollateralized and your deposit would not redeem it"
-https://xahauexplorer.com/explorer/02242933F79D8F2CAA877459CC2FA2B23B6AF75EFED687895663F146260F2BC9
-
-See the result when the user sends just 0'001 XAH USD: "Xai: Vault is undercollateralized and your deposit would not redeem it"
+When the user sends just 0'001 XAH USD: "Xai: Vault is undercollateralized and your deposit would not redeem it"
 https://xahauexplorer.com/explorer/4758169B006BBCFBA5C21578152AE1080F7328F5D1DADD1FCB280B9C459C45C6
 
-See the result when the user sends just 0'01 XAH USD: "Xai: Vault is undercollateralized and your deposit would not redeem it"
+When the user sends just 0'01 XAH USD: "Xai: Vault is undercollateralized and your deposit would not redeem it"
 https://xahauexplorer.com/explorer/C6AAE900DD7A499F229DEF3D466C1D016ACDC8EE12319EF50A5A997FF45DFBAE
 
-See the result when the user sends just 0'1 XAH USD: "Xai: Vault is undercollateralized and your deposit would not redeem it"
+When the user sends just 0'1 XAH USD: "Xai: Vault is undercollateralized and your deposit would not redeem it"
 https://xahauexplorer.com/explorer/1047BB03C3D743020A30FA91FA6334E7F49590A5BA92A0DB5766CC09E03C3D57
 
-But see the result when the user sends 1'1 XAH  which covers all the pending debt (so $10 value for a debt of $10 value): (this has to be improved, it should give all XAH in the vault directly but sends a small amount of XAI USD (0'5) which if it's send back to the hook then it gives you the correct XAH amount (1'6 XAH in this case, around 16 XAI USD):
+But when the user sends 1'1 XAH  which covers all the pending debt (so $10 value for a debt of $10 value): 
+(this has to be improved, it should give all XAH in the vault directly but sends a small amount of XAI USD (0'5) which if it's send back to the hook then it gives you the correct XAH amount (1'6 XAH in this case, around 16 XAI USD):
 https://xahauexplorer.com/explorer/539266A45BBC3087A8EE20A363332F5A71D85D5FAC26259FC0FC51D93782CC13
 https://xahauexplorer.com/explorer/AD9D9570D2B8780F398D093EAF12DD5ED70DCAD2C2970AC618DBDF8B116CBF3E
 https://xahauexplorer.com/explorer/BE2CC99415DAEAA54C82326543BEA8296350FEF2DDFBC67E29804147B5FB3C14
