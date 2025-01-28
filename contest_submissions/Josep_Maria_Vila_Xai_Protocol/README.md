@@ -169,6 +169,9 @@ https://xahauexplorer.com/explorer/C93E3895574C6D6B48BD8AA4357D57D729E4AA03A1534
 
 https://xahauexplorer.com/explorer/86CB7421CB370BB1E82A0FBAEE09B72E19C6E8D6C85BF3722E4237C71D267207
 
+Here an example of the message it gives if you try to send XAI to a vault that doesn't exist anymore: 
+https://xahauexplorer.com/explorer/DB07F804BC2B9B1CBEA313F483E03FF0676B4DFED86085ECDDE4BF1C7217C401
+
 ### Take over a vault
 
 Once a vault goes above 83% any user can take over the vault by sending the needed amount of XAH to bring it back to a secure degree of collateralization bellow 83%. By doing that the user takes control over the vault.
