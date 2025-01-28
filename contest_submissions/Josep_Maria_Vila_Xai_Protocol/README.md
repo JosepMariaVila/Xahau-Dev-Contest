@@ -44,7 +44,7 @@ https://xahau.xrplwin.com/account/rJ2GzPBeCoK9NjmJ9vcVntVj2poEvjfvEv
 
 Run decode.js, twice, to convert Carlos and Charlie raddresses to binary form, save the values somewhere. You can obtain the same result using this tool: https://hooks.services/tools/raddress-to-accountid
 
-If the Carlos account number (the "Account index" number in explorers) is numerically higher than Charlie, switch the accounts (either re-import them, or just switch their names in the following text).
+If the Carlos account number (the "Account index" number in explorers) is numerically higher than Charlie, switch the accounts, Carlos oracle account has to be the one with the lower Account Index number.
 
 Set up trust limit for the stablecoin user for 10.000.000.000, by running trust-user.ts. The script requires 2 parameters:
 The user account (Alice) sends the TrustSet transaction, so that the script requires its private key.
