@@ -42,7 +42,7 @@ https://xahau.xrplwin.com/account/rJ2GzPBeCoK9NjmJ9vcVntVj2poEvjfvEv
 
 ### Set up process
 
-Run decode.js, twice, to convert Carlos and Charlie raddresses to binary form, save the values somewhere. You can obtain the same result using this tool: https://hooks.services/tools/raddress-to-accountid
+Convert Carlos and Charlie raddresses to binary form, save the values somewhere. You can do it using this tool: https://hooks.services/tools/raddress-to-accountid
 
 If the Carlos account number (the "Account index" number in explorers) is numerically higher than Charlie, switch the accounts, Carlos oracle account has to be the one with the lower Account Index number.
 
@@ -270,7 +270,7 @@ Trustline transaction: https://xahauexplorer.com/explorer/69BDF9EC3A48A0B2D108A8
 
 In this case, as the oracle is set by Wietse Wind XRPL Labs, we don't need to do set up the oracle. If for any reason you are setting an oracle yourself, consider this:
 
-Run decode.js, twice, to convert Carlos and Charlie raddresses to binary form, save the values somewhere. You can obtain the same result using this tool: https://hooks.services/tools/raddress-to-accountid
+Convert Carlos and Charlie raddresses to binary form, save the values somewhere. You can do it using this tool: https://hooks.services/tools/raddress-to-accountid
 
 Set up trust limit on the oracle, by running trust-oracle.ts. The script requires 2 parameters:
 The low account (Carlos) sends the TrustSet transaction, so that the script requires its private key.
