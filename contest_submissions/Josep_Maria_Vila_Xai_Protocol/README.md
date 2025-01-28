@@ -113,7 +113,7 @@ https://xahauexplorer.com/explorer/9F6D159D5350816D97B60FA2E06EAE5E76C9E744B18FA
 
 https://xahauexplorer.com/explorer/739C76E3DA279F47AEEFA230B5522F0DE942C87A0EF66D4924E54ED6C52EA204
 
-Here the results a new user obtains once XAH price has changed from 20 XAI USD to 10 XAI USD and sends XAH to the hook:
+Here the results a new user obtains once XAH price has changed from 20 XAI USD to 10 XAI USD and sends XAH to the hook to create a new vault:
 
 The new user sent to the hook 1 XAH but just received 5 XAI USD (instead of the previous 10 XAI USD):
 
