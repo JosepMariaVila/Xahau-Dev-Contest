@@ -56,10 +56,9 @@ The low account (Carlos) sends the TrustSet transaction, so that the script requ
 The high account (Charlie) is set up as the trusted issuer. In this case we set it initially at 1 XAH = 20 XAI USD:
 https://xahauexplorer.com/explorer/D8EEC528734E8B79505F523F4086CD4211C603EAC6BC253A5434C68096B85477
 
-In order to set up the hook, the file xai.c contains the hook code and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: https://hooks-toolkit.com/#building-and-running-the-contracts
+In order to set up the hook, the file xai.c contains the hook code and it has to be compiled to .wasm, it can be compiled using Hooks Toolkit: https://hooks-toolkit.com/#building-and-running-the-contracts
 
-Then the xai.wasm file can be converted to binary code using a tool like this one:
-https://wasdk.github.io/wasmcodeexplorer/
+Then the xai.wasm file can be converted to binary code using a tool like this one: https://wasdk.github.io/wasmcodeexplorer/
 
 Use that binary format code to deploy the hook to Carol account (hook account, issuer), it has to be set as "ttPayment" and with these 2 parameters. You can use this Xrplwin tool to set the hook, login and paste the binary code and follow instructions): https://xahau.xrplwin.com/tools/hook/from-binary
 
@@ -277,10 +276,9 @@ Set up trust limit on the oracle, by running trust-oracle.ts. The script require
 The low account (Carlos) sends the TrustSet transaction, so that the script requires its private key.
 The high account (Charlie) is set up as the trusted issuer. 
 
-Let's set up the hook now, the file xai.c contains the hook code (the same as for Example 1) and it has to be compiled to .wasm, it can be compiled using Hooks Tookit: https://hooks-toolkit.com/#building-and-running-the-contracts 
+Let's set up the hook now, the file xai.c contains the hook code (the same as for Example 1) and it has to be compiled to .wasm, it can be compiled using Hooks Toolkit: https://hooks-toolkit.com/#building-and-running-the-contracts 
 
-Then the xai.wasm file can be converted to binary code using a tool like this one:
-https://wasdk.github.io/wasmcodeexplorer/
+Then the xai.wasm file can be converted to binary code using a tool like this one: https://wasdk.github.io/wasmcodeexplorer/
 
 Use that binary format code to deploy the hook to Carol account (hook account, issuer), it has to be set as "ttPayment" and in this case with these 2 parameters corresponding to XAH Wietse oracle (you can use this Xrplwin tool to set the hook, login and paste the binary code and follow instructions: https://xahau.xrplwin.com/tools/hook/from-binary):
 
