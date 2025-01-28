@@ -133,7 +133,7 @@ If XAH price goes down just a little, let's say it goes from 20 XAI USD to 13 XA
 
 https://xahauexplorer.com/explorer/C69101D70B72D63109A5EF89E14EC42CE1C6D57239DA94C74FEF9540821C3EAF
 
-And if anybody tries to take over the vault, it just gives the following message: "Xai: Vault is not sufficiently undercollateralized to take over yet."
+And if anybody tries to take over the vault, it gives the following message: "Xai: Vault is not sufficiently undercollateralized to take over yet."
 
 example: PENDING DOESN'T WORK PROPERLY, it allows to take over a vault no matter the degreee of undercollateralization it has, in this case it allows to take over a vault which is at 77% collateralization ratio, it shouldn't. 
 
