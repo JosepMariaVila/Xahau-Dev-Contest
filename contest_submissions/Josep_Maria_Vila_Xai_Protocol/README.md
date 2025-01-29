@@ -6,7 +6,7 @@ Xai hook protocol provides an automated way to issue and redeem XAI USD, an over
 
 Sending XAH to it creates a vault and sends back the corresponding amount of XAI USD stablecoin based on the current XAH price. XAI USD can be redeemed at any time against the vault to get back the original XAH.
 
-The collateralization ratio is set to 200%, which means that for each $10 value of XAH collateralized (which corresponds to the 100%) the protocol issues a loan of $5 value (which corresponds to the 50%) in XAI USD stablecoin (so there is an initial 200% collateralization). Any ratio bellow 200% starts the undercollateralization of the vault. The liquidation ratio is set to 120%, so if XAH price goes down and the collateral value falls bellow 120%, then anyone who wants to top up the vault can liquidate it. 
+The collateralization ratio is set exactly at 200%, which means that for each $10 value of XAH collateralized (which corresponds to the 100%) the protocol issues a loan of $5 value (which corresponds to the 50%) in XAI USD stablecoin (so there is an initial 200% collateralization). Any ratio bellow 200% starts the undercollateralization of the vault. The liquidation ratio is set to 120%, so if XAH price goes down and the collateral value falls bellow 120%, then anyone who wants to top up the vault can liquidate it. 
 
 From now on we will use the Loan to Value terminology. In Loan-to-Value (LTV) terms: a loan (5 XAI USD) divided by XAH value collateralized ($10), which results in 0'5, then multiplied by 100, we have an initial loan at a 50% ratio. The position can get liquidated if the LTV ratio goes above 83% (if the denominator-value goes down the ratio increases). A 33% secure margin from the initial position (50%) until the liquidation ratio starts (83%) is enforced by the protocol.
 
@@ -141,9 +141,9 @@ Example: WARNING PENDING THE CODE DOESN'T WORK PROPERLY, it allows to take over 
 
 What happens to users vaults now that XAH price went down so their vaults are less collateralized?
 
-Now that the price went down, users can send back XAI USD or just send XAH in both cases to increase the collateralization of their position. While users vaults are undercollateralized every XAH the corresponding user sends back to the hook account doesn't generate new XAI USD, it is just used to increase the vault collateralization to return again to the 200% ratio.
+Now that the price went down, users can send back XAI USD or just send XAH in both cases to increase the collateralization of their position. While users vaults are undercollateralized every XAH the corresponding user sends back to the hook account doesn't generate new XAI USD, it is just used to increase the vault collateralization to return exactly at the 50% ratio again.
 
-See for example what happened to Alice vault once XAH price went down to 10 XAI USD (so she has a $10 loan-debt position and 1 XAH collateralized that now has $10 value, so his position is at 100% collateralization. Remember that a good collateralization ratio should be at 50% (also called 200%, depending on how you calculate it), and the liquidation ratio is set to 83%, which is 33% above the initial ratio. So when she sends XAH to the hook she receives the following response: "Xai: Vault is undercollateralized, absorbing without sending anything."
+See for example what happened to Alice vault once XAH price went down to 10 XAI USD (so she has a $10 loan-debt position and 1 XAH collateralized that now has $10 value, so his position is at 100% collateralization. Remember that the good collateralization ratio should be exactly at 50% (also called 200%, depending on how you calculate it), and the liquidation ratio is set to 83%, which is 33% above the initial ratio. So when she sends XAH to the hook she receives the following response: "Xai: Vault is undercollateralized, absorbing without sending anything."
 
 She sends 0'001 XAH (far from the amount needed to secure the vault): "Xai: Vault is undercollateralized, absorbing without sending anything."
 
@@ -157,7 +157,7 @@ She sends 0'1 XAH (far from the amount needed to secure the vault): "Xai: Vault 
 
 https://xahauexplorer.com/explorer/9DC71DBB329011499CCE60B5BD9157DD9BBBA85D571122E310F5488498BA2054
 
-But, if she sends 1 XAH (added to the 1 XAH initially dipposited, and the small previous amounts added) it puts the vault in a correct collateralization, because there will be again around $20 value collateralized due to the total amount of 2 XAH dipposited (50% ratio, $10 XAU USD loan divided by the $20 current value). The protocol even issues some more XAI USD because the total amount collateralized is 2'111, so the total amount issued for that position goes up to 10'55 XAI USD).
+But, if she sends 1 XAH (added to the 1 XAH initially dipposited, and the small previous amounts added) it puts the vault in a correct collateralization, because there will be again at $20 value collateralized due to the total amount of 2 XAH dipposited (50% ratio, $10 XAU USD loan divided by the $20 current value). The protocol issues some more XAI USD for whatever amount excedes the 50% ratio, here the total amount collateralized is 2'111, so the total amount issued for that position goes up to 10'55 XAI USD).
 
 https://xahauexplorer.com/explorer/896F7DFC6E9652A1698228AE2FF4DCCBF3CF6C4407E0E610F2E801DC89C38034
 
