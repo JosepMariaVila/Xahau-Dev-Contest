@@ -181,9 +181,7 @@ int64_t hook(uint32_t reserved)
         // XAH INCOMING
         
         // decide whether the vault is liquidatable
-        int64_t required_vault_xrp = float_divide(vault_pusd, exchange_rate);
-        required_vault_xrp =
-            float_mulratio(required_vault_xrp, 0, LIQ_COLLATERALIZATION_NUMERATOR, LIQ_COLLATERALIZATION_DENOMINATOR);
+        int64_t required_vault_xrp = float_mulratio(required_vault_xrp, 0, LIQ_COLLATERALIZATION_NUMERATOR, LIQ_COLLATERALIZATION_DENOMINATOR);
         uint8_t can_liq = (required_vault_xrp < vault_xrp);
         
         // compute new vault XAH by adding the XAH they just sent
