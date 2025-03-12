@@ -221,7 +221,7 @@ int64_t hook(uint32_t reserved)
             }
         }
 
-        if (!is_vault_owner && can_liq = 0)
+        if (!is_vault_owner && can_liq == 0)
             rollback(SBUF("Xai Protocol: Vault is not sufficiently undercollateralized to take over yet."), 25);
 
         // execution to here means we will send out XAI USD
