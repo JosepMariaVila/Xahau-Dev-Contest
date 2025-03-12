@@ -185,10 +185,12 @@ int64_t hook(uint32_t reserved)
         required_vault_xrp =
             float_mulratio(required_vault_xrp, 0, LIQ_COLLATERALIZATION_NUMERATOR, LIQ_COLLATERALIZATION_DENOMINATOR);
         uint8_t can_liq = (vault_xrp < required_vault_xrp); // la quantitat de XAH que cal per pagar deute VS la quantitat de XAH que hi ha colateralitzat*/
+       
+        // decide whether the vault is liquidatable
         int64_t actualVaultValue = float_multiply(vault_xrp, exchange_rate);
         int64_t actualRatio = float_divide(vault_pusd, actualVaultValue);
         int64_t requiredRatio = float_divide(LIQ_COLLATERALIZATION_NUMERATOR, LIQ_COLLATERALIZATION_DENOMINATOR);
-        uint_t can_liq = (actualRatio > requiredRatio);
+        int64_t can_liq = float_compare(actualRatio, requiredRatio, COMPARE_GREATER) == 1;
         
         // compute new vault XAH by adding the XAH they just sent
         vault_xrp = float_sum(amt, vault_xrp);
