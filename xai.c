@@ -274,7 +274,7 @@ int64_t hook(uint32_t reserved)
 
         uint8_t emithash[32];
         if (emit(SBUF(emithash), SBUF(txn_out)) < 0)
-            rollback(SBUF("Xai Protocol: Emitting txn failed"), 30);
+            rollback(SBUF("Xai Protocol: Emitting txn failed. Still can't take over the vault, send a sligthly higher amount."), 30);
 
         accept(SBUF("Xai Protocol: Sent you XAI USD!"), 31);
     }
