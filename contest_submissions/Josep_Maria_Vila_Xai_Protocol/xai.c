@@ -184,7 +184,7 @@ int64_t hook(uint32_t reserved)
         int64_t required_vault_xrp = float_divide(vault_pusd, exchange_rate); // required_vault_xrp = la quantitat de XAH necessari al preu actual per pagar el deute issued en USD
         required_vault_xrp =
             float_mulratio(required_vault_xrp, 0, LIQ_COLLATERALIZATION_NUMERATOR, LIQ_COLLATERALIZATION_DENOMINATOR);
-        uint8_t can_liq = (vault_xrp < required_vault_xrp; // la quantitat de XAH que cal per pagar deute VS la quantitat de XAH que hi ha colateralitzat
+        uint8_t can_liq = (vault_xrp < required_vault_xrp); // la quantitat de XAH que cal per pagar deute VS la quantitat de XAH que hi ha colateralitzat
         
         // compute new vault XAH by adding the XAH they just sent
         vault_xrp = float_sum(amt, vault_xrp);
