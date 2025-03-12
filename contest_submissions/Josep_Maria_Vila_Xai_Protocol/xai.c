@@ -164,8 +164,8 @@ int64_t hook(uint32_t reserved)
 
     // check if state currently exists
     uint8_t vault[16];
-    int64_t vault_pusd = 0;
-    int64_t vault_xrp = 0;
+    int64_t vault_pusd = 0; // deute
+    int64_t vault_xrp = 0; // la quantitat de XAH que hi ha com a colateral
     uint8_t vault_exists = 0;
     if (state(SBUF(vault), SBUF(vault_key)) == 16)
     {
@@ -181,10 +181,10 @@ int64_t hook(uint32_t reserved)
         // XAH INCOMING
         
          // decide whether the vault is liquidatable
-        int64_t required_vault_xrp = float_divide(vault_pusd, exchange_rate);
+        int64_t required_vault_xrp = float_divide(vault_pusd, exchange_rate); // required_vault_xrp = la quantitat de XAH necessari al preu actual per pagar el deute issued en USD
         required_vault_xrp =
             float_mulratio(required_vault_xrp, 0, LIQ_COLLATERALIZATION_NUMERATOR, LIQ_COLLATERALIZATION_DENOMINATOR);
-        uint8_t can_liq = (required_vault_xrp < vault_xrp);
+        uint8_t can_liq = (required_vault_xrp < vault_xrp); //
         
         // compute new vault XAH by adding the XAH they just sent
         vault_xrp = float_sum(amt, vault_xrp);
