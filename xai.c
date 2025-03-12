@@ -190,8 +190,9 @@ int64_t hook(uint32_t reserved)
         int64_t actualVaultValue = float_multiply(vault_xrp, exchange_rate);
         int64_t actualRatio = float_divide(vault_pusd, actualVaultValue);
         int64_t requiredRatio = float_divide(LIQ_COLLATERALIZATION_NUMERATOR, LIQ_COLLATERALIZATION_DENOMINATOR);
-        int64_t can_liq = float_compare(actualRatio, requiredRatio, COMPARE_GREATER) == 1;
-        
+        int64_t can_liq = 0;
+        if (float_compare(actualRatio, requiredRatio, COMPARE_GREATER) == 1)
+            can_liq = 1;        
         // compute new vault XAH by adding the XAH they just sent
         vault_xrp = float_sum(amt, vault_xrp);
 
@@ -221,7 +222,7 @@ int64_t hook(uint32_t reserved)
             }
         }
 
-        if (!is_vault_owner && !can_liq)
+        if (!is_vault_owner && can_liq = 0)
             rollback(SBUF("Xai Protocol: Vault is not sufficiently undercollateralized to take over yet."), 2);
 
         // execution to here means we will send out XAI USD
