@@ -135,8 +135,6 @@ https://xahauexplorer.com/explorer/C69101D70B72D63109A5EF89E14EC42CE1C6D57239DA9
 
 And if anybody tries to take over the vault, it gives the following message: "Xai: Vault is not sufficiently undercollateralized to take over yet."
 
-Example: WARNING PENDING THE CODE DOESN'T WORK PROPERLY, it allows to take over a vault no matter the degreee of undercollateralization it has, in this case it allows to take over a vault which is at 77% collateralization ratio, it shouldn't, it just should allow to do it above 83%. 
-
 ### Recollateralization
 
 What happens to users vaults now that XAH price went down so their vaults are less collateralized?
