@@ -13,7 +13,7 @@
 #define NEW_COLLATERALIZATION_NUMERATOR 2
 #define NEW_COLLATERALIZATION_DENOMINATOR 4 
 
-// at 120% collateralization your vault may be taken over
+// at 120% or lower collateralization your vault may be taken over
 #define LIQ_COLLATERALIZATION_NUMERATOR 5
 #define LIQ_COLLATERALIZATION_DENOMINATOR 6
 
