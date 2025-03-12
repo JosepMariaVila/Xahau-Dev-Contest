@@ -30,7 +30,7 @@ int64_t hook(uint32_t reserved)
     uint8_t otxn_accid[20];
     int32_t otxn_accid_len = otxn_field(SBUF(otxn_accid), sfAccount);
     if (otxn_accid_len < 20)
-        rollback(SBUF("Xai: sfAccount field missing!!!"), 10);
+        rollback(SBUF("Xai Protocol: sfAccount field missing!!!"), 10);
 
     // get the source tag if any... negative means it wasn't provided
     int64_t source_tag = otxn_field(0,0, sfSourceTag);
@@ -40,7 +40,7 @@ int64_t hook(uint32_t reserved)
     // compare the "From Account" (sfAccount) on the transaction with the account the hook is running on
     int equal = 0; BUFFER_EQUAL(equal, hook_accid, otxn_accid, 20);
     if (equal)
-        accept(SBUF("Xai: Outgoing transaction"), 20);
+        accept(SBUF("Xai Protocol: Outgoing transaction"), 20);
 
     // invoice id if present is used for taking over undercollateralized vaults
     // format: { 20 byte account id | 4 byte tag [FFFFFFFFU if absent] | 8 bytes of 0 }
@@ -50,12 +50,12 @@ int64_t hook(uint32_t reserved)
     // check if a trustline exists between the sender and the hook for the XAI USD currency [ USD ]
     uint8_t keylet[34];
     if (util_keylet(SBUF(keylet), KEYLET_LINE, SBUF(hook_accid), SBUF(otxn_accid), SBUF(currency)) != 34)
-        rollback(SBUF("Xai: Internal error, could not generate keylet"), 10);
+        rollback(SBUF("Xai Protocol: Internal error, could not generate keylet"), 10);
     
     int64_t user_peggy_trustline_slot = slot_set(SBUF(keylet), 0);
     TRACEVAR(user_peggy_trustline_slot);
     if (user_peggy_trustline_slot < 0)
-        rollback(SBUF("Xai: You must have a trustline set for XAI USD to this account."), 10);
+        rollback(SBUF("Xai Protocol: You must have a trustline set for XAI USD to this account."), 10);
 
 
     // because the trustline is actually a ripplestate object with a 'high' and a 'low' account
@@ -64,19 +64,19 @@ int64_t hook(uint32_t reserved)
     int compare_result = 0;
     ACCOUNT_COMPARE(compare_result, hook_accid, otxn_accid);
     if (compare_result == 0)
-        rollback(SBUF("Xai: Invalid trustline set hi=lo?"), 1);
+        rollback(SBUF("Xai Protocol: Invalid trustline set hi=lo?"), 1);
 
     int64_t lim_slot = slot_subfield(user_peggy_trustline_slot, ((compare_result > 0) ? sfLowLimit : sfHighLimit), 0); 
     if (lim_slot < 0)
-        rollback(SBUF("Xai: Could not find sfLowLimit on oracle trustline"), 20);
+        rollback(SBUF("Xai Protocol: Could not find sfLowLimit on oracle trustline"), 20);
 
     int64_t user_trustline_limit = slot_float(lim_slot);
     if (user_trustline_limit < 0)
-        rollback(SBUF("Xai: Could not parse user trustline limit"), 1);
+        rollback(SBUF("Xai Protocol: Could not parse user trustline limit"), 1);
 
     int64_t required_limit = float_set(10, 1);
     if (float_compare(user_trustline_limit, required_limit, COMPARE_EQUAL | COMPARE_GREATER) != 1)
-        rollback(SBUF("Xai: You must set a trustline for XAI USD to the issuer for limit of at least 10B"), 1);
+        rollback(SBUF("Xai Protocol: You must set a trustline for XAI USD to the issuer for limit of at least 10B"), 1);
 
     // execution to here means the invoking account has the required trustline with the required limit
     // now fetch the price oracle accounts and data (which also lives in a trustline)
@@ -85,7 +85,7 @@ int64_t hook(uint32_t reserved)
     if (prv < 20)
     {
         TRACEVAR(prv);
-        rollback(SBUF("Xai: \"oracle_lo\" parameter missing"), 4);
+        rollback(SBUF("Xai Protocol: \"oracle_lo\" parameter missing"), 4);
     }
 
     uint8_t oracle_hi[32];
@@ -93,24 +93,24 @@ int64_t hook(uint32_t reserved)
     if (prv < 20)
     {
         TRACEVAR(prv);
-        rollback(SBUF("Xai: \"oracle_hi\" parameter missing"), 6);
+        rollback(SBUF("Xai Protocol: \"oracle_hi\" parameter missing"), 6);
     }
 
     if (util_keylet(SBUF(keylet), KEYLET_LINE, oracle_lo, 20, oracle_hi, 20, SBUF(currency)) != 34)
-        rollback(SBUF("Xai: Internal error, could not generate keylet"), 10);
+        rollback(SBUF("Xai Protocol: Internal error, could not generate keylet"), 10);
 
     int64_t slot_no = slot_set(SBUF(keylet), 0);
     TRACEVAR(slot_no);
     if (slot_no < 0)
-        rollback(SBUF("Xai: Could not find oracle trustline"), 10);
+        rollback(SBUF("Xai Protocol: Could not find oracle trustline"), 10);
 
     lim_slot = slot_subfield(slot_no, sfLowLimit, 0);
     if (lim_slot < 0)
-        rollback(SBUF("Xai: Could not find sfLowLimit on oracle trustline"), 20);
+        rollback(SBUF("Xai Protocol: Could not find sfLowLimit on oracle trustline"), 20);
 
     int64_t exchange_rate = slot_float(lim_slot);
     if (exchange_rate < 0) 
-        rollback(SBUF("Xai: Could not get exchange rate float"), 20);
+        rollback(SBUF("Xai Protocol: Could not get exchange rate float"), 20);
    
     // execution to here means we have retrieved the exchange rate from the oracle
     TRACEXFL(exchange_rate);
@@ -120,23 +120,23 @@ int64_t hook(uint32_t reserved)
     // to examine its internals
     int64_t oslot = otxn_slot(0);
     if (oslot < 0)
-        rollback(SBUF("Xai: Could not slot originating txn."), 1);
+        rollback(SBUF("Xai Protocol: Could not slot originating txn."), 1);
 
     // specifically we're interested in the amount sent
     int64_t amt_slot = slot_subfield(oslot, sfAmount, 0);
     if (amt_slot < 0)
-        rollback(SBUF("Xai: Could not slot otxn.sfAmount"), 2);
+        rollback(SBUF("Xai Protocol: Could not slot otxn.sfAmount"), 2);
 
     int64_t amt = slot_float(amt_slot);
     if (amt < 0)
-        rollback(SBUF("Xai: Could not parse amount."), 1);
+        rollback(SBUF("Xai Protocol: Could not parse amount."), 1);
 
     // the slot_type api allows determination of fields and subtypes of fields according to the doco
     // in this case we're examining an amount field to see if it's a native (XAH) amount or an iou amount
     // this means passing flag=1
     int64_t is_xrp = slot_type(amt_slot, 1);
     if (is_xrp < 0)
-        rollback(SBUF("Xai: Could not determine sent amount type"), 3);
+        rollback(SBUF("Xai Protocol: Could not determine sent amount type"), 3);
 
 
     // In addition to determining the amount sent (and its type) we also need to handle the "recollateralization"
@@ -174,7 +174,7 @@ int64_t hook(uint32_t reserved)
         vault_exists = 1;
     }
     else if (is_vault_owner == 0)
-        rollback(SBUF("Xai: You cannot takeover a vault that does not exist!"), 1);
+        rollback(SBUF("Xai Protocol: You cannot takeover a vault that does not exist!"), 1);
 
     if (is_xrp)
     {
@@ -204,25 +204,25 @@ int64_t hook(uint32_t reserved)
         int64_t pusd_to_send =
             float_sum(max_vault_pusd, float_negate(vault_pusd));
         if (pusd_to_send < 0)
-            rollback(SBUF("Xai: Error computing XAI USD to send"), 1);
+            rollback(SBUF("Xai Protocol: Error computing XAI USD to send"), 1);
 
         // is the amount to send negative, that means the vault is undercollateralized
         if (float_compare(pusd_to_send, 0, COMPARE_LESS))
         {
             if (!is_vault_owner)
-                rollback(SBUF("Xai: Vault is undercollateralized and your deposit would not redeem it."), 1);
+                rollback(SBUF("Xai Protocol: Vault is undercollateralized and your deposit would not redeem it."), 1);
             else
             {
                 if (float_sto(vault + 8, 8, 0,0,0,0, vault_xrp, -1) != 8)
-                    rollback(SBUF("Xai: Internal error writing vault"), 1);
+                    rollback(SBUF("Xai Protocol: Internal error writing vault"), 1);
                 if (state_set(SBUF(vault), SBUF(vault_key)) != 16)
-                    rollback(SBUF("Xai: Could not set state"), 1);
-                accept(SBUF("Xai: Vault is undercollateralized, absorbing without sending anything."), 0);
+                    rollback(SBUF("Xai Protocol: Could not set state"), 1);
+                accept(SBUF("Xai Protocol: Vault is undercollateralized, absorbing without sending anything."), 0);
             }
         }
 
         if (!is_vault_owner && can_liq == 0)
-            rollback(SBUF("Xai: Vault is not sufficiently undercollateralized to take over yet."), 2);
+            rollback(SBUF("Xai Protocol: Vault is not sufficiently undercollateralized to take over yet."), 2);
 
         // execution to here means we will send out XAI USD
 
@@ -234,7 +234,7 @@ int64_t hook(uint32_t reserved)
         {
             // destroy 
             if (state_set(0,0,SBUF(vault_key)) < 0)
-                rollback(SBUF("Xai: Could not destroy old vault."), 1);
+                rollback(SBUF("Xai Protocol: Could not destroy old vault."), 1);
 
             // reset the key
             CLEARBUF(vault_key);
@@ -250,16 +250,16 @@ int64_t hook(uint32_t reserved)
         // set / update the vault
         if (float_sto(vault, 8, 0,0,0,0, vault_pusd, -1) != 8 ||
             float_sto(vault + 8, 8, 0,0,0,0, vault_xrp, -1) != 8)
-            rollback(SBUF("Xai: Internal error writing vault"), 1);
+            rollback(SBUF("Xai Protocol: Internal error writing vault"), 1);
 
         if (state_set(SBUF(vault), SBUF(vault_key)) != 16)
-            rollback(SBUF("Xai: Could not set state"), 1);
+            rollback(SBUF("Xai Protocol: Could not set state"), 1);
 
         // we need to dump the iou amount into a buffer
         // by supplying -1 as the fieldcode we tell float_sto not to prefix an actual STO header on the field
         uint8_t amt_out[48];
         if (float_sto(SBUF(amt_out), 0, 0, 0, 0, pusd_to_send, -1) < 0)
-            rollback(SBUF("Xai: Could not dump XAI USD amount into sto"), 1);
+            rollback(SBUF("Xai Protocol: Could not dump XAI USD amount into sto"), 1);
 
         // set the currency code and issuer in the amount field
         for (int i = 0; GUARD(20),i < 20; ++i)
@@ -274,33 +274,33 @@ int64_t hook(uint32_t reserved)
 
         uint8_t emithash[32];
         if (emit(SBUF(emithash), SBUF(txn_out)) < 0)
-            rollback(SBUF("Xai: Emitting txn failed"), 1);
+            rollback(SBUF("Xai Protocol: Emitting txn failed"), 1);
 
-        accept(SBUF("Xai: Sent you XAI USD!"), 0);
+        accept(SBUF("Xai Protocol: Sent you XAI USD!"), 0);
     }
     else
     {
 
         // NON-XAH incoming
         if (!vault_exists)
-            rollback(SBUF("Xai: Can only send XAI USD back to an existing vault."), 1);
+            rollback(SBUF("Xai Protocol: Can only send XAI USD back to an existing vault."), 1);
 
         uint8_t amount_buffer[48];
         if (slot(SBUF(amount_buffer), amt_slot) != 48)
-            rollback(SBUF("Xai: Could not dump sfAmount"), 1);
+            rollback(SBUF("Xai Protocol: Could not dump sfAmount"), 1);
 
         // ensure the issuer is us
         for (int i = 28; GUARD(20), i < 48; ++i)
         {
             if (amount_buffer[i] != hook_accid[i - 28])
-                rollback(SBUF("Xai: A currency we didn't issue was sent to us."), 1);
+                rollback(SBUF("Xai Protocol: A currency we didn't issue was sent to us."), 1);
         }
 
         // ensure the currency is XAI USD
         for (int i = 8; GUARD(20), i < 28; ++i)
         {
             if (amount_buffer[i] != currency[i - 8])
-                rollback(SBUF("Xai: A non XAI USD currency was sent to us."), 1);
+                rollback(SBUF("Xai Protocol: A non XAI USD currency was sent to us."), 1);
         }
 
         TRACEVAR(vault_pusd);
@@ -326,27 +326,27 @@ int64_t hook(uint32_t reserved)
             float_sum(float_negate(max_vault_xrp), vault_xrp);
 
         if (xrp_to_send < 0)
-            rollback(SBUF("Xai: Error computing XAH to send"), 1);
+            rollback(SBUF("Xai Protocol: Error computing XAH to send"), 1);
 
         // is the amount to send negative, that means the vault is undercollateralized
         if (float_compare(xrp_to_send, 0, COMPARE_LESS))
         {
             if (!is_vault_owner)
-                rollback(SBUF("Xai: Vault is undercollateralized and your deposit would not redeem it."), 1);
+                rollback(SBUF("Xai Protocol: Vault is undercollateralized and your deposit would not redeem it."), 1);
             else
             {
                 if (float_sto(vault, 8, 0,0,0,0, vault_pusd, -1) != 8)
-                    rollback(SBUF("Xai: Internal error writing vault"), 1);
+                    rollback(SBUF("Xai Protocol: Internal error writing vault"), 1);
 
                 if (state_set(SBUF(vault), SBUF(vault_key)) != 16)
                     rollback(SBUF("Xai: Could not set state"), 1);
 
-                accept(SBUF("Xai: Vault is undercollateralized, absorbing without sending anything."), 0);
+                accept(SBUF("Xai Protocol: Vault is undercollateralized, absorbing without sending anything."), 0);
             }
         }
 
         if (!is_vault_owner && !can_liq)
-            rollback(SBUF("Xai: Vault is not sufficiently undercollateralized to take over yet."), 2);
+            rollback(SBUF("Xai Protocol: Vault is not sufficiently undercollateralized to take over yet."), 2);
 
         // execution to here means we will send out XAI USD
 
@@ -358,7 +358,7 @@ int64_t hook(uint32_t reserved)
         {
             // destroy 
             if (state_set(0,0,SBUF(vault_key)) < 0)
-                rollback(SBUF("Xai: Could not destroy old vault."), 1);
+                rollback(SBUF("Xai Protocol: Could not destroy old vault."), 1);
 
             // reset the key
             CLEARBUF(vault_key);
@@ -374,10 +374,10 @@ int64_t hook(uint32_t reserved)
         // set / update the vault
         if (float_sto(vault, 8, 0,0,0,0, vault_pusd, -1) != 8 ||
             float_sto(vault + 8, 8, 0,0,0,0, max_vault_xrp, -1) != 8)
-            rollback(SBUF("Xai: Internal error writing vault"), 1);
+            rollback(SBUF("Xai Protocol: Internal error writing vault"), 1);
 
         if (state_set(SBUF(vault), SBUF(vault_key)) != 16)
-            rollback(SBUF("Xai: Could not set state"), 1);
+            rollback(SBUF("Xai Protocol: Could not set state"), 1);
 
         // RH TODO: check the balance of the hook account
 
@@ -387,9 +387,9 @@ int64_t hook(uint32_t reserved)
 
         uint8_t emithash[32];
         if (emit(SBUF(emithash), SBUF(txn_out)) < 0)
-            rollback(SBUF("Xai: Emitting txn failed"), 1);
+            rollback(SBUF("Xai Protocol: Emitting txn failed"), 1);
 
-        accept(SBUF("Xai: Sent you XAH!"), 0);
+        accept(SBUF("Xai Protocol: Sent you XAH!"), 0);
     }
     return 0;
 }
